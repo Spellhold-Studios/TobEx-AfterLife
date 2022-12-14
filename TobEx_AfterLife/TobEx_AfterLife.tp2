@@ -1,0 +1,35 @@
+BACKUP "TobEx_AfterLife/backup"
+
+AUTHOR "Insomniator (http://www.shsforums.net/topic/61080-tobex-afterlife/)"
+
+// AUTHOR of original TobEx:
+// "Ascension64 (http://www.shsforums.net/forum/606-TobEx/)"
+
+// AUTHOR of TobEx v28:
+// "Magus (http://http://www.shsforums.net/topic/60882-a-release/)"
+
+VERSION "v29.12"
+
+LANGUAGE "English"
+         "english"
+         "TobEx_AfterLife/tra/english/prompts.tra"
+         "TobEx_AfterLife/tra/english/setup.tra"
+
+///////////////////////////////// Update existing TobEx
+BEGIN @200 DESIGNATED 200
+REQUIRE_PREDICATE MOD_IS_INSTALLED ~TOBEX/TOBEX.TP2~ ~100~ @230
+REQUIRE_PREDICATE FILE_EXISTS ~TobEx_ini/TobExVer.txt~ @230
+
+OUTER_SPRINT TOBEX_MOD_DIRECTORY "./TobEx_AfterLife"
+LOAD_TRA "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx.tra"
+ACTION_INCLUDE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx_AfterLife.tpa"
+
+
+/////////////////////////////////
+// Remove Improved Invisibility saving throws +4 bonuses from BG2Fixpack/Mods
+// if option 'Saving Throw Fix' will be never disabled
+//BEGIN @300 DESIGNATED 300
+//REQUIRE_PREDICATE MOD_IS_INSTALLED ~TOBEX_AFTERLIFE/TOBEX_AFTERLIFE.TP2~ ~200~ @240
+
+//OUTER_SPRINT TOBEX_MOD_DIRECTORY "./TobEx_AfterLife"
+//ACTION_INCLUDE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx_ImpInvFix.tpa"

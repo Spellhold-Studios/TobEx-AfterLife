@@ -1,0 +1,70 @@
+DEFINE_PATCH_FUNCTION find_and_patch BEGIN
+
+  SET abil_length = 0x28
+  SET bPrint = 0
+  SET fx_delta = 0
+  
+  READ_LONG  0x64 abil_off ELSE 0
+  READ_SHORT 0x68 abil_num ELSE 0
+  READ_LONG  0x6a fx_off   ELSE 0
+    
+  FOR (index = 0 ; index < abil_num ; ++index) BEGIN // iterating abilities
+      SET bFound_Invis = 0
+      SET bFound_Bonuses = 0
+      
+      READ_SHORT  (abil_off + 0x1e + (abil_length * index)) abil_fx_num
+      WRITE_SHORT (abil_off + 0x20 + (abil_length * index)) THIS + fx_delta
+      READ_SHORT  (abil_off + 0x20 + (abil_length * index)) abil_fx_idx
+      
+      FOR (index2 = 0 ; index2 < abil_fx_num ; ++index2) BEGIN // iterating effects
+        READ_SHORT (fx_off +        (0x30 * (abil_fx_idx + index2))) opcode
+        READ_LONG  (fx_off + 0x04 + (0x30 * (abil_fx_idx + index2))) param1
+        READ_LONG  (fx_off + 0x08 + (0x30 * (abil_fx_idx + index2))) param2
+        PATCH_IF ((opcode = 20) AND (param2 = 1)) BEGIN                     // Improved Invisibility
+            SET bFound_Invis = 1
+        END
+        
+        // Save vs. death is just a marker
+        PATCH_IF ((opcode = 33) AND (param1 = 4) AND (param2 = 0)) BEGIN    // Save vs. death bonus, +4 bonus
+            SET bFound_Bonuses = 1
+        END
+      END //for
+      
+      PATCH_IF ((bFound_Invis = 1) AND (bFound_Bonuses = 1)) BEGIN
+        SET bPrint = 1
+        FOR (index3 = 33 ; index3 < 38 ; ++index3) BEGIN
+          LPF DELETE_EFFECT INT_VAR silent = 1 check_globals = 0 match_opcode = index3 END // delete all saves
+        END
+      END
+  END //for
+    
+  PATCH_IF (bPrint = 1) BEGIN
+        PATCH_PRINT ~%SOURCE_FILE% removed saving bonuses~
+  END
+  
+END
+
+
+ACTION_DEFINE_ASSOCIATIVE_ARRAY cd_imp_invis BEGIN  // bg2fixpack
+  spdr401 => spdr401a // Invisible Stalker Improved Invisibility
+  spin687 => spin687a // Create Shadows
+  spin698 => spin698a // Cerebus Improved Invisibility
+  spwi405 => spwi405a // improved invis (mage)
+  spwi505 => spwi505a // shadow door (mage)
+  spwi607 => spwi607a // Mislead
+  spwi721 => spwi721a // mass invisibility
+  balth10 => balth10a // Shadow Stance!
+  spin544 => spin544a // PSIONIC_SUPERIOR_INVISIBILITY
+END
+
+ACTION_PHP_EACH cd_imp_invis AS spell => subspell BEGIN
+  COPY_EXISTING ~%spell%.spl~ ~override~ 
+   LPF DELETE_EFFECT INT_VAR silent = 1 check_globals = 0 match_opcode = 146 STR_VAR resource = EVAL ~%subspell%~ END // delete sub-spell
+  BUT_ONLY IF_EXISTS
+END
+
+
+// Any improved invisibility opcodes with embedded +4 Save Bonuses
+COPY_EXISTING_REGEXP GLOB ~.*\.spl~ ~override~
+  LPF find_and_patch END
+BUT_ONLY

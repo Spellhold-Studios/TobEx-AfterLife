@@ -1,0 +1,1208 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN"
+    "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+  <head>
+    <meta charset="UTF-8">
+    <style type="text/css">
+/*<![CDATA[*/
+<!-- 
+    body {
+        margin: 0;
+        padding: 0;
+        cursor: default;
+        text-align: center;
+        color: #000;
+        background: #e3e3db url('images/shsbkgd.jpg');
+    }
+
+    #wrap {
+        text-align: left;
+        margin: 0 auto;
+        margin-top: 20px;
+        width: 88%;
+        font-family: Verdana, Tahoma, Arial, sans-serif;
+        font-size: 12px;
+        color: #333;
+    }
+
+    #header {
+        text-align: center;
+        background: #e5e5e5;
+        border: 1px solid #781808;
+        border-top: 5px solid #781808;
+        border-bottom: 5px solid #781808;
+        padding: 5px 0 13px 0;
+    }
+    #header .about {
+        margin: 7px 0 0 0;
+        padding: 0;
+        font-style: italic;
+        color: #555;
+    }
+    #header .menu {
+        font-weight: bold;
+        margin: 0;
+        color: #999;
+    }
+    #header .menu a:link,
+    #header .menu a:visited {
+        color: #333;
+    }
+    
+    #footer {
+        text-align: center;
+        background: #e5e5e5;
+        border: 1px solid #781808;
+        border-top: 5px solid #781808;
+        border-bottom: 5px solid #781808;
+        font-size: 75%;
+        padding: 5px 0 13px 0;
+    }
+
+    #maindiv {
+        margin: 0 auto;
+        margin-top: -20px;
+    }
+
+    #maindiv .content {
+        counter-increment: kman;
+        counter-reset: h2;
+        background-color: #e8e8e6;
+        padding: 0 0 25px 0;
+        margin: 50px auto;
+        border-width: 1px 1px 4px 10px;
+        border-style: solid;
+        border-color: #781808;
+        position: relative;
+        display: block;
+    }
+    #maindiv .content::before {
+        content: counter(kman, lower-roman);
+        font-size: 100%;
+        font-weight: bold;
+        text-align: center;
+        color: #eee;
+        background-color: #781808;
+        width: 35px;
+        top: 0px;
+        left: 0px;
+        display: block;
+    }
+
+    #maindiv .important {
+        font-size: 95%;
+        font-family: Verdana;
+        text-align: left;
+        background-color: #F1F1F1;
+        border-top: solid 1px #aaa;
+        border-bottom: solid 1px #aaa;
+        border-left: solid 1px #aaa;
+        border-right: solid 1px #aaa;
+        margin: 20px auto;
+        width: 80%;
+        line-height: 160%;
+    }
+    #maindiv .important::before {
+        display: none;
+    }
+    #maindiv .important p {
+        width: 100%;
+        font-size: 100%;
+        text-indent: 0px;
+        margin: 5px 0 10px 0;
+    }
+    #maindiv .important ol {
+        margin: -10px 0 0 20px;
+    }
+    #maindiv .important ul {
+        margin: -10px 0 0 15px;
+    }
+
+    #maindiv p {
+        font-size: 100%;
+        font-style: normal;
+        line-height: 150%;
+        padding: 0px;
+        margin: 10px auto;
+        width: 90%;
+        display: block;
+    }
+
+    #maindiv address {
+        font-size: 95%;
+        font-style: normal;
+        font-weight: bold;
+        text-decoration: none;
+        color: #BBB;
+        background-color: #781808;
+        padding: 3px 0px 0px;
+        margin: 0px;
+        width: 100%;
+        position: absolute;
+        bottom: -1px;
+        left: 0px;
+        display: block;
+        text-align: right;
+    }
+    #maindiv address a:active {
+        color: #fff;
+        text-decoration: line-through;
+        border: none;
+    }
+    #maindiv address a:focus,
+    #maindiv address a:hover {
+        text-decoration: none;
+        color: #F1F1F1;
+        border: 0;
+    }
+    #maindiv address a:link,
+    #maindiv address a:visited {
+        font-weight: bold;
+        text-decoration: underline;
+        background-color: transparent;
+        color: #eaeaea !important;
+        padding-right: 5px;
+        padding-left: 6px;
+    }
+
+
+    /*  Lists  */
+    #maindiv ol {
+        margin: -10px 0 0 35px;
+        *margin-left: 70px;
+    }
+    #maindiv ol li {
+        line-height: 150%;
+    }
+    #maindiv ul {
+        line-height: 170%;
+        margin-left: 4%;
+        width: 87%;
+    }
+    #maindiv ul li {
+        line-height: 150%;
+    }
+    #maindiv ul li ul {
+        margin: 0px;
+        width: 96%;
+    }
+    #maindiv ul li ul li {
+    }
+    #maindiv ul li a:link,
+    #maindiv ul li a:visited,
+    #maindiv ul li ul li a:link,
+    #maindiv ul li ul li a:visited {
+        color: #781808;
+        text-decoration: none;
+        font-weight: normal;
+    }
+
+    .t1 {
+        font-weight: bold;
+        width: 26%;
+        text-align: right;
+        clear: right;
+        float: left;
+        *float: none;
+        *margin-left: 65px;
+        line-height: 22px;
+    }
+    .t2 {
+        text-align: left;
+        width: 73%;
+        float: right;
+        *float: none;
+        line-height: 22px;
+    }
+
+
+    /*  Liens internet  */
+    a:hover,
+    a:active {
+        color: #222;
+        border-bottom: 1px solid black;
+    }
+    a:link,
+    a:visited {
+        color: #781808;
+        font-weight: bold;
+        text-decoration: none;
+    }
+
+    h1 {
+        font-size: 250%; /* 225 */
+        color: #444;
+        padding: 10px 0 15px 0; /* 5 0 5 0 */
+        margin: 0;
+        width: 100%;
+    }
+    h2 {
+        display: block;
+        font-family: Verdana, Trebuchet MS, Arial, serif;
+        text-align: left;
+        text-indent: 30px;
+        padding: 0px;
+        margin: 20px 0 0 0;
+        border-bottom: dotted 2px #d0d0d0;
+        border-top: dotted 2px #d0d0d0;
+        background: #deded9;
+        font-size: 160%;
+    }
+    h2::first-letter {
+        color: #781808;
+        background-color: transparent;
+    }
+    h3,
+    h4,
+    h5 {
+        margin: 10px 40px 10px 40px;
+        padding: 0;
+    }
+    h3 {
+        font-size: 125%;
+        font-style: italic;
+    }
+    h4 {
+        font-size: 125%;
+    }
+    h5 {
+        font-size: 100%;
+    }
+    h6 {
+        width: 100%;
+        margin: 10px 0 15px 0;
+        background-color: #ECECEC;
+        text-align: left;
+        text-indent: 30px;
+        font-size: 100%;
+        font-style: italic;
+        padding-top: 1px;
+        padding-bottom: 1px;
+        border-bottom: solid 1px #bbb;
+        border-top: solid 1px #bbb;
+    }
+
+    .screen {background-size:contain;background-repeat:no-repeat}
+    .screen img{max-width:100%; opacity:1;transition: opacity 1.25s ease-in-out;
+        -moz-transition: opacity 1.25s ease-in-out;
+        -webkit-transition: opacity 1.25s ease-in-out;
+    }
+    .screen img:hover{max-width:100%; opacity:0}
+
+    h7 {
+        display: block;
+        font-family: Verdana, Trebuchet MS, Arial, serif;
+        text-align: left;
+        padding: 0px;
+        margin: 20px 0 0 0;
+        border-bottom: dotted 2px #d0d0d0;
+        border-top: dotted 2px #d0d0d0;
+        background: #deded9;
+        font-size: 160%;
+    }
+    h7::first-letter {
+        color: #781808;
+        background-color: transparent;
+    }
+-->
+/*]]>*/
+    </style>
+    <title>
+        Spellhold Studios - TobEx AfterLife
+    </title>
+    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+    <link href="images/shsweb.ico" rel="icon" type="image/bmp" />
+
+  </head>
+
+  <body>
+    <div id="wrap">
+      <a name="top" id="top"></a>
+      <div id="header">
+
+        <h1>TobEx AfterLife</h1>
+
+      <span style="font-style: italic;"><strong>A Spellhold Studios mod for Baldur's Gate II:ToB, Baldur's Gate Trilogy.</strong></span>
+        <hr style="margin: 10px 0 10px 0; padding: 0; height: 1px; border: 0; color: #aaa; background-color: #aaa;" />
+
+        <p class="about">
+            Author: Insomniator
+        </p>
+        <p class="about">
+            <a href="http://www.spellholdstudios.net/">Mod Website</a> &#8226; <a href="http://www.shsforums.net/topic/61072-tobex-afterlife/">Mod Forum</a> &#8226; <a href="http://www.shsforums.net/files/file/1274-tobex-afterlife/">Download</a> &#8226; <a href="https://github.com/SpellholdStudios/TobEx_AfterLife/">GitHub</a> &#8226;  Version 29.12
+        </p>
+        <hr style="margin: 10px 0 10px 0; padding: 0; height: 1px; border: 0; color: #aaa; background-color: #aaa;" />
+
+        <p class="menu">
+            <a href="#intro">Overview</a> | <a href="#requirements">Requirements</a> | <a href="#installation">Installation Order & Compatibility</a> | <a href="#compon">Components</a> | <a href="#credits">Credits</a> | <a href="#version">Version History</a>
+        </p>
+        
+      </div>
+
+    <div id="maindiv">
+<!-- ================== I n t r o d u c t i o n ================== -->
+      <a name="intro" id="intro"></a>
+      <div class="content">
+
+        <h2>Overview</h2><br>
+
+        <p>
+            AfterLife is <a href="http://www.shsforums.net/forum/606-tobex/">TobEx</a> fork with more bugfixes/tweaks for original Baldur's Gate II engine.
+            It is part of <a href="http://www.shsforums.net/files/file/1265-bg2-improved-gui/">BG2 Improved GUI</a> project, but only TobEx options are enabled.
+            <br>
+            <br>
+            Codebase was changed to custom one, this is no more "original" TobEx v26 by Ascension64, use it at your own risk. Includes <a href="http://www.shsforums.net/topic/60882-a-release/">v28</a> patch by Magus. Share same C++ sources with main BG2 Improved GUI, src files available at "bg2improvedgui\src" folder.
+         </p>
+
+        <p>
+            <strong>Selectable fixes:</strong>
+        </p>
+        <ul style="margin-left: 4%;">
+        <li><a href="..\TobEx_redist\TobEx_ini.txt">Support all options of original TobEx</a></li>
+        <li><a href="#DisarmTrap"   >Disarm Trap Distance [F]</a></li>
+        <li><a href="#BehindPoly"   >Character Behind Polygon [F]</a></li>
+        <li><a href="#BattleMus"    >Continuous Battle Music [F]</a></li>
+        <li><a href="#BG1AnimCre"   >Set BG1 Animation during Character Generation [T]</a></li>
+        <li><a href="#FlickCursor"  >Flickering Cursor [F]</a></li>
+        <li><a href="#CpuIdle"      >Cpu Idle [T]</a></li>
+        <li><a href="#TargetVisual" >Over Target Visual Effect [T]</a></li>
+        <li><a href="#FixedScreen"  >Skip OpenGL Fullscreen Display Modes with Fixed Interpolation [T]</a></li>
+        <li><a href="#VSyncOn"      >OpenGL VSync On [T]</a></li>
+        <li><a href="#SpellConting" >Protection From Spell for Contingency [F]</a></li>
+        <li><a href="#RunBackground">Run In Background [T]</a></li>
+        <li><a href="#InterrupCast" >Stop Animation/Sound of Interrupted Casting [F]</a></li>
+        <li><a href="#MixedSoundset">Mixed Soundset for BGT [M]</a></li>
+        <li><a href="#CrashdumpSave">External Crashdump Saving Utility [D]</a></li>
+        <li><a href="#SoundRef"     >Externalise Animation Sound Reference Override [M]</a></li>
+        <li><a href="#AnimConfig"   >Externalise Animation Config Override [M]</a></li>
+        <li><a href="#MuteAnimSnd"  >Mute Generic Animation Attack Sound [T]</a></li>
+        <li><a href="#DisItemSnd"   >Disable Hardcoded BG1 Item Sounds [T]</a></li>
+        <li><a href="#SelfEff"      >Self-Patched Effect Removing [F]</a></li>
+        <li><a href="#SequenceSnd"  >Sequence Sound Override [F]</a></li>
+        <li><a href="#AnkhegAnim"   >Ankheg Range Weapon Animation [F]</a></li>
+        <li><a href="#CreEmbSnd"    >Creature Embedded Sound overrides 2DA Entry [T]</a></li>
+        <li><a href="#AttackSound1" >Restore Creature Attack Sounds #1 [T]</a></li>
+        <li><a href="#AttackSound2" >Restore Creature Attack Sounds #2 [T]</a></li>
+        <li><a href="#SearchPath"   >Path Search Party Bumpable When Moving [T]</a></li>
+        <li><a href="#OffHandBG1Ani">Enable Off Hand Weapon BG1 Animation [T]</a></li>
+        <li><a href="#RobeSound"    >Enable Robe Armor Sound [T]</a></li>            
+        <li><a href="#IdleTimerAnim">Reset Idle Timer After Weapon Equipped [T]</a></li>        
+        <li><a href="#WeaponSpeed"  >Weapon Speed [F]</a></li>        
+        <li><a href="#ImprInvisBon" >Saving Throw Improved Invisible Bonus [C]</a></li>
+        <li><a href="#HiddenPatches">Disable Hidden TobEx Patches [D]</a></li>
+        </ul>        
+        
+        <div>
+        <div class="quotetitle" style="margin:10px auto; width:90%;">
+            <strong>Default AfterLife options state:</strong>
+				<input value="Show" style="color: #e3e3db; margin: 0px; padding: 0px; width: 60px; background:#781808;"
+				onclick="if (this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display != '') { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = ''; this.innerText = ''; this.value = 'Hide'; } else { this.parentNode.parentNode.getElementsByTagName('div')[1].getElementsByTagName('div')[0].style.display = 'none'; this.innerText = ''; this.value = 'Show'; }" type="button" >
+        </div>
+
+        <div class="quotecontent" style="margin: 0px auto;width: 85%; border-style: solid; border-width: 1px; border-color: #781808; margin-top: 2px; margin-bottom: 2px; padding: 2px;">
+        <div style="display: none; ">
+Character Behind Polygon Fix=1<br>
+Disarm Trap Distance Fix=1<br>
+Continuous Battle Music Fix=1<br>
+Set BG1 Animation during Character Generation=0<br>
+Flickering Cursor Fix=1<br>
+Cpu Idle=1<br>
+Over Target Visual Effect Fixes=1<br>
+Skip OpenGL Fullscreen Display Modes with Fixed Interpolation=0<br>
+OpenGL VSync On=0<br>
+Protection From Spell for Contingency Fix=1<br>
+Run In Background=0<br>
+Disable Hidden TobEx Patches=0<br>
+External Crashdump Saving Utility=1<br>
+Stop Animation/Sound of Interrupted Casting=1<br>
+Mixed Soundset for BGT=1<br>
+Externalise Animation Sound Reference Override=1<br>
+Externalise Animation Config Override=1<br>
+Mute Generic Animation Attack Sound=0<br>
+Disable Hardcoded BG1 Item Sounds=0<br>
+Self-Patched Effect Removing Fix=1<br>
+Sequence Sound Override Fix=1<br>
+Ankheg Range Weapon Animation Fix=1<br>
+Creature Embedded Sound overrides 2DA Entry=1<br>
+Restore Creature Attack Sounds #1=1<br>
+Restore Creature Attack Sounds #2=1<br>
+Enable Off Hand Weapon BG1 Animation=0<br>
+Enable Robe Armor Sound=1<br>
+Reset Idle Timer After Weapon Equipped=1<br>
+Weapon Speed Fix=1<br>
+Path Search Party Bumpable When Moving=0<br>
+Saving Throw Improved Invisible Bonus=0<br>
+        </div>
+        </div>
+        </div>
+
+        <address>
+            <span class="footer">Overview</span> &#8226;<a href="#top">BACK TO TOP</a>
+        </address>
+      </div>
+
+      
+<!-- ================= Requirements ================= -->      
+      <a name="requirements" id="requirements"></a>
+      <div class="content">
+
+        <h2>Requirements</h2><br>
+
+        <ul>
+        <li>Baldur's Gate II Throne of Bhaal (ToB) expansion with official patch <strong>v2.5.26498</strong></li>
+        <li>Installed TobEx <a href="http://www.shsforums.net/forum/606-tobex/"><strong>original v26</strong></a> or <a href="http://www.shsforums.net/topic/60882-a-release/"><strong>modded v28</strong></a>, mod will replace installed <strong>tobex.dll</strong> with custom version</li>
+        </ul>
+        
+        <address>
+            <span class="footer">Requirements</span> &#8226;<a href="#top">BACK TO TOP</a>
+        </address>
+      </div>      
+
+<!-- ================== I n s t a l l a t i o n ================== -->
+      <a name="installation" id="installation"></a>
+      <div class="content">
+
+        <h2>Installation Order & Compatibility</h2><br>
+        
+        <p>Install before mods:</p>
+        <ul><strong>
+        <li>BG2 Improved GUI</li>
+        </strong></ul>
+        
+        <p>Install after mods:</p>
+        <ul><strong>
+        <li>TobEx</li>
+        </strong></ul>
+
+        <p>Not compatible:</p>
+        <ul>
+        <li>Component <strong>Saving Throw Improved Invisible Bonus</strong> not compatible with BG2 Fixpack</li>
+        </ul>
+
+        <address>
+            <span class="footer">Installation Order</span> &#8226;<a href="#top">BACK TO TOP</a>
+        </address>
+      </div>
+
+<!-- =================== C o m p o n e n t s ==================== -->
+      <a name="compon" id="compon"></a>
+        <div class="content">
+        <h2>Components</h2><br>
+
+<!-- ============================================================================== -->
+        <a name="DisarmTrap" id="DisarmTrap"></a>
+        <p><strong>
+Disarm Trap Distance [Fix]
+        </strong></p>
+        <p>
+        Add safe distance around trap to disarm, fixes bug when original engine move char to centre of trap and if trap has large polygon it will automaticaly triggered
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="BehindPoly" id="BehindPoly"></a>
+        <p><strong>
+Character Behind Polygon [Fix]
+        </strong></p>
+        <p>
+        Make character behind big polygon (door/passes/...) selectable for mouse actions.
+There is other types of objects like containers on ground, they are always unavailable if overlapped by polygon from LIST_FRONT list because these objects belong to LIST_MIDDLE or LIST_BACK lists
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="BattleMus" id="BattleMus"></a>
+        <p><strong>
+Continuous Battle Music [Fix]
+        </strong></p>
+        <p>
+        Battle Music plays without reseting when GUI/Screen switched from main Game screen
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="BG1AnimCre" id="BG1AnimCre"></a>
+        <p><strong>
+Set BG1 Animation during Character Generation [Tweak]
+        </strong></p>
+        <p>
+        Set "BG1 Type" animation to main character, require Infinity Animation installed.
+GNOME and HALFORC animation missed in BG1 set, animation of GNOME become DWARF, HALFORC become HUMAN
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="FlickCursor" id="FlickCursor"></a>
+        <p><strong>
+Flickering Cursor [Fix]
+        </strong></p>
+        <p>
+        In fullscreen mode for unknow reason engine renders cursor two times - first on backbuffer, then on primary surface. Writing to primary surface is bad idea because this surface is what graphic chip shows currently on monitor. Component removes writing to primary surface and keep only one way to render cursor - to backbuffer
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="CpuIdle" id="CpuIdle"></a>
+        <p><strong>
+Cpu Idle [Tweak]
+        </strong></p>
+        <ul>
+        1) Graphic Render uses infinite CPU cycle to synchronize with AI part of game(AI synchronized with constant timer). Component changes synchronization type to "events", events uses Windows API and don't load CPU<br>
+        2) Timing in Movie player changed from CPU Cycles to sleep states<br>
+        3) When switched from BG2 to other Application, put engine to sleep states
+        </ul>
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="TargetVisual" id="TargetVisual"></a>
+        <p><strong>
+Over Target Visual Effect [Tweak]
+        </strong></p>
+        <p>
+        Some spells/weapons/items use "Over target (unattached) Visual Effect", this type of effect has adavantage(bug ?) - it ignores timing, always play animation only one time. And has visual disadvantage - no tracking to target/owner, animation plays always at same point on area, even target/owner moved far from this point. Tweak changes "Over target (unattached) Visual Effect" to be like "attached" version, e.g. move animation together with target/owner, also stop animation if owner is died/disappeared
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="FixedScreen" id="FixedScreen"></a>
+        <p><strong>
+Skip OpenGL Fullscreen Display Modes with Fixed Interpolation [Tweak]
+        </strong></p>
+        <p>
+        Since Windows XP, vendor's video driver can report same display resolution tree times:
+        </p>
+        <ul>
+        1) default mode<br>
+        2) centered at larger screen space<br>
+        3) stretched to fill larger screen space.
+        </ul>
+        <p>
+        In Intel/NVidia control panel default mode can be overrided to few selectable option - scale by display/scale by driver/etc. BG2 engine don't expect same mode few times and always fetch first in line. Depending on video driver, it can be any of three modes, control panel in this case ignores user's preferences and rely directly on application request (Intel control panel has "Override Application Settings" to ignore application request, but this option not available for all possible scaling methods and doesn't work properly with OpenGL apps). Component skips centered/stretched modes and prefers default mode without any interpolation
+        </p>
+        <p>
+        Options:
+        </p>
+        <ul>
+        <li>0: disabled</li>
+        <li>1: skip all fixed interpolation modes</li>
+        <li>2: force display's default setting</li>
+        </ul>
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="VSyncOn" id="VSyncOn"></a>
+        <p><strong>
+OpenGL VSync On [Tweak]
+        </strong></p>
+        <p>
+        Enable OpenGL VSync by game itself, useful with Intel VGA latest drivers when in Graphics Control Panel VSYNC and TripleBuffering can be enabled always together and no way to enable VSync only (all Infinity Engines don't compatible with triple buffering)
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="SpellConting" id="SpellConting"></a>
+        <p><strong>
+Protection From Spell for Contingency [Fix]
+        </strong></p>
+        <p>
+        Fixes Protection From Spell opcode to work with Contingency/Sequencer.
+Normaly engine parse all spells in Contingency list and place it to two queue, apply all available effects from first queue and only after this process second queue. Component places Protection From Spell and other opcodes to first(Message) queue to process one spell as one job
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="RunBackground" id="RunBackground"></a>
+        <p><strong>
+Run In Background [Tweak]
+        </strong></p>
+        <p>
+        Run game even in inactive window on screen, works only in window mode, at fullscreen game always pause if switched to other window
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="InterrupCast" id="InterrupCast"></a>
+        <p><strong>
+Stop Animation/Sound of Interrupted Casting [Fix]
+        </strong></p>
+        <p>
+        Adds handling "non-damage" events to stop animation/sound when NPC/Party interrupted casting or died
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="MixedSoundset" id="MixedSoundset"></a>
+        <p><strong>
+Mixed Soundset for BGT [Modding]
+        </strong></p>
+        <p>
+        For BGT changes default BG2 selection sounds to BG1/Mix/Max soundset for listed creatures. Requires external BGSNDSET.2DA:</p>
+        <div class="important" >
+        <pre>
+2DA V1.00
+*
+            Type
+AASIM       BG1
+ABELA       BG2
+IMOEN10     Mix
+IMOEN15     Max
+...         ...</pre>
+        </div>
+        <p>
+        first column - creature filename<br>
+        second column -
+        </p>
+        <ul>
+<strong>BG1</strong> - CRE file has BG1 soundset:   BG1_SELECT_ACTION1-3 (0x124-0x12C) + BG1_SELECT_RARE1-4 (0x130-0x13c)<br>
+<strong>BG2</strong> - CRE file has BG2 soundset:   BG2_SELECT_ACTION1-7 (0x124-0x13C) + BG2_SELECT_RARE1-2 (0x1a0-0x1a4)<br>
+<strong>Mix</strong> - CRE file has Mixed soundset: BG2_SELECT_ACTION1-7 (0x124-0x13C) + BG2_SELECT_RARE1-2 (0x1a0-0x1a4) + BG2EE_SELECT_RARE1-4 (0x1d0-0x1dc)(slots #75-78)<br>
+<strong>Max</strong> - same as Mix + all unused slots in 0x1e0-0x230 range used as additional sounds:
+        </ul>
+        <div class="important" >
+        <pre>
+1 MORALE2                    1e0 (slot #79)
+2 HAPPY2                     1e4 (slot #80)
+3 UNHAPPY_ANNOYED2           1e8 (slot #81)
+4 UNHAPPY_SERIOUS2           1ec (slot #82)
+5 UNHAPPY_BREAKING_POINT2    1f0 (slot #83)
+6 LEADER2                    1f4 (slot #84)
+7 TIRED2                     1f8 (slot #85)
+8 BORED2                     1fc (slot #86)
+18 DAMAGE2                   200 (slot #87)
+19 DYING2                    204 (slot #88)
+20 HURT2                     208 (slot #89)
+21 AREA_FOREST2              20c (slot #90)
+22 AREA_CITY2                210 (slot #91)
+23 AREA_DUNGEON2             214 (slot #92)
+24 AREA_DAY2                 218 (slot #93)
+25 AREA_NIGHT2               21c (slot #94)
+
+27 SELECT_COMMON7            220 (slot #95)
+28 SELECT_COMMON8            224 (slot #96)
+29 SELECT_COMMON9            228 (slot #97)
+32 SELECT_ACTION8            22C (slot #98)
+33 SELECT_ACTION9            230 (slot #99)</pre>
+        </div>
+        <p>
+        For example char with <strong>Max</strong> type will play MORALE sound from original offset 0xA8 and from additional 0x1E0 by random order. <strong>Max</strong> type plays rare sounds after 13 clicks.<br>
+<br>
+BG2EE_SELECT_RARE1-4 works as BG1_SELECT_RARE1-4, plays rare sounds after 9 clicks.<br>
+<br>
+Due engine bug when it lost first char of creature filename in savegame files, this component requires starting new game.
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="CrashdumpSave" id="CrashdumpSave"></a>
+        <p><strong>
+External Crashdump Saving Utility [Debug]
+        </strong></p>
+        <p>
+        Enables external Library (<strong>ExceptionHandler</strong> (c) 1998 Bruce Dawson) to save MS WinDbg compatible crashdump file to disk
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="SoundRef" id="SoundRef"></a>
+        <p><strong>
+Externalise Animation Sound Reference Override [Modding]
+        </strong></p>
+        <p>
+        Each animation sound 2da contains soundset information associated with each animation with the same 4-letter animation code (see reference ANIMSND.2DA). Unfortunately engine doesn't use ANIMSND.2DA, instead all 4-letter soundset filenames hardcoded to game code. Option externalises animation_id->sound_2da_filename mapping to ANISNDEX.2DA for override hardcoded values:
+        </p>
+        <div class="important" >
+        <pre>2DA V1.0
+****
+       File     Description
+0x7101 MBAS2    BASILISK_GREATER
+0x7200 MBER4    BEAR_BLACK
+0x7202 MBER3    BEAR_CAVE
+0x7203 MBER2    BEAR_POLAR
+0x7401 MDOG2    DOG_WAR
+0x7501 MDOP2    DOPPLEGANGER_GREATER
+0x7702 MGHL2    GHOUL_GHAST
+0x7B01 MWLF5    WOLF_WORG
+0x7B02 MWLF6    WOLF_DIRE
+0xA000 MWYV2    SMALL_WYVERN
+...... .....    ..................</pre>
+        </div>        
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="AnimConfig" id="AnimConfig"></a>
+        <p><strong>
+Externalise Animation Config Override [Modding]
+        </strong></p>
+        <p>
+        See "TobEx_redist\<strong>TobEx_ini.txt</strong>" for detailed info about this component
+        </p>
+        
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="MuteAnimSnd" id="MuteAnimSnd"></a>
+        <p><strong>
+Mute Generic Animation Attack Sound [Tweak]
+        </strong></p>
+        <p>
+        If creature doesn't have personal attack sounds, on every melee attack engine plays ATTACK sound from animation sound 2DA file. TobEx's "<strong>Enable Animation Attack Sounds</strong>" option introduced playing additional specific attack animation sound together with ATTACK sound.
+This component disables first ATTACK sound and plays only specic attack animation sound.
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="DisItemSnd" id="DisItemSnd"></a>
+        <p><strong>
+Disable Hardcoded BG1 Item Sounds [Tweak]
+        </strong></p>
+        <p>
+        BG2 engine has one of BG1 legacy - some monster's weapons have hardcoded specific sounds. Same goal can be reached using new animation sound 2da files. Option disables hardcoded item mapping if this mapping will be rely on 2da files.<br>
+        For example hardcoded melee ANGHEG1.itm->ANKHG06.wav and range ANGHEG2.itm->ANKHG05.wav can be implemented in 2da format:<br>
+        <div class="important" ><pre>
+ATTACK or ATTACK_SLASH/ATTACK_BACKSLASH/ATTACK_JAB  ANKHG06
+SHOOT                                               ANKHG05</pre>
+        </div>
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="SelfEff" id="SelfEff"></a>
+        <p><strong>
+Self-Patched Effect Removing [Fix]
+        </strong></p>
+        <p>
+        Color setting effects (effect codes 7,8,9,51,52) may self-modify if applied on item in off hand. These effects can not be removed due 100% match requirement with original item's ability.
+Component enables removing effects with these codes.
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="SequenceSnd" id="SequenceSnd"></a>
+        <p><strong>
+Sequence Sound Override [Fix]
+        </strong></p>
+        <p>
+        Most animation types have hardcoded sequence overrides for animation sound 2da files. For example when Ankheg (animation_id 3xxx) does range attack, engine overrides SHOOT sound to READY.
+Component removes most overrides and makes using sound 2da files more precisely
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="AnkhegAnim" id="AnkhegAnim"></a>
+        <p><strong>
+Ankheg Range Weapon Animation [Fix]
+        </strong></p>
+        <p>
+        Vanilla engine assigns range animation for melee JAB attack and assigns empty animation for SHOOT/Range attack. Component set range animation for SHOOT attack and SLASH/BACKSLASH animation for JAB attack.
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="CreEmbSnd" id="CreEmbSnd"></a>
+        <p><strong>
+Creature Embedded Sound overrides 2DA Entry [Tweak]
+        </strong></p>
+        <p>
+        Tweak removes playing of attack animation sounds from 2da if creature has personal sounds.<br>
+        Mapping:</p>
+        <ul>        
+<li>DAMAGE  mute 2DA's DAMAGE</li>
+<li>DYING   mute 2DA's DIE</li>
+<li>ATTACK1 mute 2DA's ATTACK and ATTACK_SLASH</li>
+<li>ATTACK2 mute 2DA's ATTACK and ATTACK_BACKSLASH</li>
+<li>ATTACK3 mute 2DA's ATTACK and ATTACK_JAB</li>
+<li>ATTACK4 mute 2DA's SHOOT</li>
+        </ul>                   
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="AttackSound1" id="AttackSound1"></a>
+        <p><strong>
+Restore Creature Attack Sounds #1 [Tweak]
+        </strong></p>
+        <p>
+        Engine has bug with Creature Attack[2-4] (0xe0-0xe8 offsets) sounds, it always play Attack1 sound only.
+        Restore sounds with mapping:
+        </p>
+<ul>        
+<li>ATTACK1 on slash animation</li>
+<li>ATTACK2 on backslash animation</li>
+<li>ATTACK3 on jab animation</li>
+<li>ATTACK4 on shoot/range animation</li>
+</ul>
+
+        <p>ATTACK4 wasn't used in original engine and has unknow original purpose, <a href="http://www.shsforums.net/user/41045-skellytz/">Skellytz</a> introduced new mapping - set creature personal range weapon sound.
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="AttackSound2" id="AttackSound2"></a>
+        <p><strong>
+Restore Creature Attack Sounds #2 [Tweak]
+        </strong></p>
+        <p>
+        If creature equipped with one of weapon with specific swing sound, game mutes personal(embedded) ATTACK1-4 sounds, but still plays attack sounds from animation sound 2da at same time. 
+Component restores playing ATTACK1-4 sounds together with weapon swing sound (even for Darts and Touch weapons with special "mute all swing sounds" mode)
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="RobeSound" id="RobeSound"></a>
+        <p><strong>
+Robe Armor Sound [Tweak]
+        </strong></p>
+        <p>
+        Restores disabled ARM_01*.wav for Mages with Robes.
+For using with InfinityAnimation random Mage AnimID, requires anim_class=W in EXTANIM60.2DA/EXTANIM64.2DA
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="IdleTimerAnim" id="IdleTimerAnim"></a>
+        <p><strong>
+Reset Idle Timer After Weapon Equipped [Tweak]
+        </strong></p>
+        <p>
+        Enable long-timed SEQ_READY animation sequence if char equipped/re-equiped weapon or shield.
+Removes bug when SEQ_READY showed only for 1 or 2 animation frames and changed instantly to SEQ_HEAD_TURN
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="WeaponSpeed" id="WeaponSpeed"></a>
+        <p><strong>
+Weapon Speed [Fix]
+        </strong></p>
+        <p>
+        Ignores ammo speed (usualy = 0, max speed) for ranged weapon, instead uses launcher speed. Restores WSPECIAL.2DA's SPEED column speed bonus.
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="SearchPath" id="SearchPath"></a>
+        <p><strong>
+Path Search Party Bumpable When Moving [Tweak]
+        </strong></p>
+        <p>
+        Alternates Path Search algorithm to ignore Party/Ally current position to eliminate famous bug when char can not directly move to destionation point if other party member currently is blocking passage.
+Original algorithm may change current direction to other side of map, then recalculate after timeout and back to "right" way
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="OffHandBG1Ani" id="OffHandBG1Ani"></a>
+        <p><strong>
+Enable Off Hand Weapon BG1 Animation [Fix]
+        </strong></p>
+        <p>
+        Enables paperdoll off hand weapon animation for InfinityAnimation BG1 Chars, filename calculation:<br>
+<strong>WP[S/M/L]</strong> + <strong>WeaponCode</strong> + "<strong>O</strong>" + "<strong>IN.BAM</strong>".<br> Animation forced to use main hand weapon animation, there is no off hand weapon animation files in BG1
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="HiddenPatches" id="HiddenPatches"></a>
+        <p><strong>
+Disable Hidden TobEx Patches [Debug]
+        </strong></p>
+        <p>
+        Disables small patches when need to keep only few enabled options:
+        </p>
+        <ul>
+<li>Set Wild Mage school to Generalist</li>
+<li>Remove +2/-2 bonus "Unschooled weapon/item Effects versus Chars with any Kit</li>
+<li>Allow equip Robe for Mages with BG1 type animation</li>
+
+<li>Extended combat text mistypos</li>
+<li>Clear "unstealable" bit when putting item to Bag to allow stacking</li>
+<li>Remove hardcoded check for mage animation X2XX for Infinity Animation BG1 type Mage animation</li>
+<li>Fix Armor sound for Infinity Animation BG1/BG2 type Mage animation</li>
+<li>Remove WAL_77*.wav Ready Sound for Infinity Animation 0x10XX/0x50XX animation monsters</li>
+<li>Enable dual-classing for Infinity Animation BG1 type animation</li>
+<li>Green highlight stats(with +bonus) on inventory screen</li>
+<li>Undefined creating/assign CString from not null-ended ResRef::GetResRef()</li>
+<li>Remove crash when "min level" field setted in .ITM</li>
+<li>Enable any resolution in window mode</li>
+<li>Mouse Wheel on some ScrollBars</li>
+<li>Assign SPACE key as ENTER in dialogs</li>
+<li>Bugged Mislead clone for Creatures with >327 HitPoints</li>
+<li>Destructed first char of .CRE filename in save games</li>
+<li>Trigger AreaCheckObject() crash</li>
+<li>Remove doubling sound in dialogs</li>
+<li>Remove spell hotkeys exploit</li>
+<li>Gender Change opcode fix</li>
+<li>Remove multi-target items/spell swap exploit</li>
+<li>Disable 2DA sounds when playing SELECT_ACTION from .CRE</li>
+<li>Add missed Bow/Crossbow/Sling Elf/Halfling race bonus when weapon in "ranged" mode (without ammo)</li>
+<li>CAnimation1200::CAnimation1200() forget to set wAnimId</li>
+<li>CreateInventoryItem(opcode=122) forgot to set "undroppable" item flag for Simulacrum clone</li>
+<li>Disable resetting sequence to SEQ_READY in ClearActions() if:
+    <ul>
+    <li>Char going to walk after idle
+    <li>Char already in idle state (has SEQ_HEAD_TURN sequence)
+    </ul> 
+<li>2TB+ free space error window</li>
+    </ul>
+<p>
+Disables game code injects:
+<ul>     
+<li>CEffect::CreateEffect()</li>
+<li>CEffect::ApplyTiming()</li>
+<li>CEffect::CheckSave()</li>
+<li>CDerivedStats::OpAdd()</li>
+<li>CEffectDamage::ApplyEffect()</li>
+<li>CItem::GetAbilityEffect()</li>
+<li>ResSplContainer::GetAbilityEffect()</li>
+<li>CCreatureObject::ActionPickPockets()</li>
+<li>CreateUIControl()</li>
+<li>CRuleTables::GetMageSpellRef()</li>
+<li>CCreatureObject::SetCurrentAction()</li>
+<li>CCreatureObject::Construct()</li>
+    </ul>         
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+<!-- ============================================================================== -->
+        <a name="ImprInvisBon" id="ImprInvisBon"></a>
+        <p><strong>
+Saving Throw Improved Invisible Bonus [Compatibility]
+        </strong></p>
+        <p>
+        Enable +4 Saving Throw Bonus at engine level, doesn't apply bonus against creatures with ability to see invisible. Component not compatible with BG2 Fixpack! (BG2 Fixpack has own, but worse fix)
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+
+
+
+<!-- ======================= C r e d i t s ====================== -->
+      <a name="credits" id="credits"></a>
+      <div class="content">
+
+        <h2>Credits</h2><br>
+
+            <span class="t1">Author:</span> <span class="t2"><a href="http://www.shsforums.net/user/41628-insomniator/">Insomniator</a></span><br>
+            <span class="t1">Original TobEx source code:</span> <span class="t2"><a href="https://github.com/Ascension64/TobEx/">Ascension64</a></span><br>            
+            <span class="t1">TobEx v28 patch:</span> <span class="t2"><a href="http://www.shsforums.net/topic/60882-a-release/">Magus</a></span><br>            
+            <span class="t1"><acronym title="Weimer Dialogue Utility">WeiDU</acronym> coding:</span> <span class="t2"><a href="http://www.shsforums.net/user/41628-insomniator/">Insomniator</a></span><br>
+
+        <hr style="clear: both; width: 90%; color: transparent; background-color: transparent; " />
+
+        <br>
+        <h5>Special Acknowledgements to:</h5>
+
+          <ul class="version-list c1">
+            <li><a href="http://www.spellholdstudios.net/">Spellhold Studios</a> team for hosting the mod (<a href="http://www.shsforums.net">Forums</a>)</li>
+            <li><a href="http://www.shsforums.net/forum/606-tobex/">Ascension64 </a> for TobEx and BG2 Engine Reverse Enginering</li>
+            <li>Everyone else from the <a href="http://www.shsforums.net/">Spellhold Studios</a> forums, and the other Infinity Engine gaming and modding communities who offered their help and support.</li>
+          </ul><br>
+
+        <h5>Programs/tools used in creation:</h5>
+
+          <ul class="version-list c1">
+            <li>
+              <a href="https://github.com/WeiDUorg/weidu/"><acronym title="Weimer Dialogue Utility">WeiDU</acronym></a>, by Wes Weimer, the bigg and Wisp.
+            </li>
+            <li>
+              <a href="https://github.com/Argent77/NearInfinity/">Near Infinity</a>, by Jon Olav Hauglid, FredSRichardson, and Argent77.
+            </li>
+          </ul><br>
+          
+        <h5>Compilation</h5>
+        <p>Folder "src" is modified sources of TobEx v28, merge with original TobEx filetree</p>
+        <br>
+
+        <h5>Copyrights</h5>
+            
+          <div class="important" style="border-color: #781808;">
+            <p>TobEx AfterLife is not developed, supported, or endorsed by BioWare&trade; or Interplay/BlackIsle, Overhaul, Beamdog or the Wizards of the Coast. It was developed by Author, based on material from the game Baldur's Gate II and its expansion.</p>
+            <p>Most mod content is &copy;Author.</p>
+            <p>Baldur's Gate II: Shadows of Amn and Baldur's Gate II: Throne of Bhaal &copy; TSR, Inc. The BioWare Infinity Engine is &copy; BioWare Corp. All other trademarks and copyrights are property of their respective owners.</p>
+
+            <p>This mod was created to be freely enjoyed by all Baldur's Gate II players, and its content is free of rights.</p>
+
+            <p>If there are any copyright issues or this statement needs revision, then please contact me and advise me what to do about it. Most notably, if you see any artwork in this mod that might conflict with Copyright rules, please let me know as soon as possible, and I will remove the conflicting content immediately.</p>
+          </div>
+
+          <div class="important" style="border-width: 1px 2px 1px 2px; border-style: solid; border-color: #781808;">
+            <p>This work (including all code and documentation) is licensed under a <a href="http://creativecommons.org/licenses/by-nc/3.0/">Creative Commons Attribution-Noncommercial 3.0 Unported License</a>. You are free to share (copy, distribute and transmit) and to remix (adapt) this work, except for commercial purposes. See the <a href="http://creativecommons.org/licenses/by-nc/3.0/legalcode">Creative Commons Public License</a> for more details. Please post any changes or updates at the mod's <a href="http://www.shsforums.net/topic/60986-bg2-improved-gui/">forum</a>.</p>
+            <p style ="width: 100%;">All copyrights and trademarks are the property of their respective owners.</p>
+          </div>
+
+        <address>
+            <span class="footer">Credits</span> &#8226;<a href="#top">BACK TO TOP</a>
+        </address>
+      </div>
+
+<!-- ============== V e r s i o n   H i s t o r y =============== -->
+      <a name="version" id="version"></a>
+      <div class="content">
+
+        <h2>Version History</h2><br>
+
+        <h6>Version 29.12</h6>
+          <ul>
+            <li>Added: 2TB+ Free Disk space Fix</li>
+            <li>Added: HTML Documentation</li>
+            <li>Synced with Improved GUI v5.5</li>            
+          </ul>
+        <h6>Version 29.11</h6>
+          <ul>
+            <li>Added: Externalise Animation Config Override new columns</li>
+            <li>Added: Enable Off Hand Weapon BG1 Animation</li>
+            <li>Added: Enable Robe Armor Sound</li>
+            <li>Added: Reset Idle Timer After Weapon Equipped</li>
+            <li>Added: Weapon Speed Fix</li>
+            <li>Added: Party Bumpable When Moving</li>
+            <li>Added: Saving Throw Improved Invisible Bonus</li>
+            <li>Removed: Improved Invisibility saving throws +4 bonuses from patched spells</li>
+          </ul>
+        <h6>Version 29.10</h6>
+          <ul>
+            <li>Fixed: Mixed Soundset for BGT</li>
+            <li>Added: Mute 2DA's HEAD_TURN/READY/WALK sounds if SELECT_ACTION are playing</li>
+            <li>Added: Assigning key to not memorized spell exploit fix</li>
+            <li>Added: Multi-target item swap exploit fix</li>
+            <li>Removed: "Mixed Soundset for BGT Unknown BG1 NPC Have BG2 Soundset"</li>
+            <li>Fixed: Animation & Modal State with ACTION_CLEAR_BLOCK_VARIABLES action opcode</li>
+            <li>Added: new MAX type for Mixed BGT Soundset</li>
+            <li>Fixed: Gender changing opcode bug</li>
+          </ul>
+        <h6>Version 29.9</h6>
+          <ul>
+            <li>Added: Remove Improved Invisibility saving throws +4 bonuses from patched spells</li>
+            <li>Added: Assume SPACE key as ENTER in dialog</li>
+            <li>Added: Mixed Soundset for BGT</li>
+            <li>Added: Mixed Soundset for BGT Unknown BG1 NPC Have BG2 Soundset</li>
+            <li>Added: Externalise Animation Sound Reference Override</li>
+            <li>Added: Externalise Animation Config Override</li>
+            <li>Added: Self-Patched Effect Removing Fix</li>
+            <li>Added: Sequence Sound Override Fix</li>
+            <li>Added: Ankheg Range Weapon Animation Fix</li>
+            <li>Added: Disable Hidden TobEx Patches</li>
+            <li>Added: Stop Animation/Sound of Interrupted Casting</li>
+          </ul>
+        <h6>Version 29.8/V29.8_fix/V29.8_fix2</h6>
+          <ul>
+            <li>Fixed: Double Mouse Rate regression bug</li>
+            <li>Added: Crashdump saving utility</li>
+            <li>Fixed: Protection From Spell for Contingency crash</li>
+            <li>Fixed: Level One Proficiency Restrictions regression</li>
+            <li>Added: Protection From Spell for Contingency Fix</li>
+            <li>Added: Unpause engine in background window</li>
+          </ul>
+        <h6>Version 29.7</h6>
+          <ul>
+            <li>Added: Restore "Minimal Level" field in .ITM</li>
+            <li>Added: OpenGL VSync On</li>
+          </ul>
+        <h6>Version 29.1-6</h6>
+          <ul>
+            <li>Added: Skip Fullscreen Display Modes with Fixed Interpolation</li>
+            <li>Added: Over Target Visual Effect Fixes</li>
+            <li>Added: Flickering Cursor Fix</li>
+            <li>Added: Cpu Idle</li>
+            <li>Fixed: HASTE moving regression after Character Behind Polygon Fix</li>
+            <li>Added: Set BG1 Animation during Character Generation</li>
+            <li>Removed standalone install mode, removed languages except english</li>
+            <li>Added: Continuous Battle Music Fix</li>
+          </ul>
+        <h6>Version 29.0</h6>
+          <ul>
+            <li>Added: Trap Disarm Distance Fix</li>
+            <li>Added: Character Behind Polygon Fix</li>
+            <li>Allow equip armour items(Robes) to mages with BG1 type animation</li>
+            <li>Wild Mage school fixed NONE->Generalist</li>
+            <li>Removed unnecessary +2/-2 bonus "Unschooled weapon/item Effects versus Chars with any Kit"</li>
+          </ul>
+        <h6>Version 29.pre0</h6>
+          <ul>    
+            <li>Refactored to fix compiler/analyzer warnings:</li>
+            <li>Fixed most "mixed unsigned vs signed comparing"</li>
+            <li>Added missed parentheses "x & y == z" -> "(x & y) == z"</li>
+            <li>Rewritten Charisma/Morale/xxx TobEx fixes</li>
+            <li>Field names changed to Bioware's names (based on "BG2EE baldur.pdb")</li>
+            <li>Function names changed to Bioware's names (based on "BG2 Tob PowerPC symbols")</li>
+            <li>Partially removed unnecessary constructor/destructor calls</li>
+            <li>Partially replaced "__thiscall calls to bgmain.exe" to simple macro</li>
+            <li>Merged with BG2 Improved GUI</li>
+          </ul>   
+        <h6>Version 28 (by Magus)</h6>
+          <ul>    
+            <li>Loader: Modified error messages to be very slightly more informative</li>
+            <li>Log Dialogue Bar: Fixed a bug that prevented user patches from working if TobEx_dlg.log already existed</li>
+            <li>Magic Resistance Mod Fix: Fixed a bug when successfully resisting a spell showed too many messages in the dialogue bar</li>
+            <li>Saving Throw Fix: Fixed a bug when successfully saving against a group of effects showed too many messages in the dialogue bar</li>
+            <li>User Patches: Successfully applied user patches are now logged too</li>
+            <li>WeiDU: Updated simplified Chinese and traditional Chinese translations (by Hindo’s Doom)</li>
+            <li>WeiDU: updated to v246</li>
+            <li>Switched PlatformToolset to v100, updated Detours to 4.0.1.</li>
+          </ul>   
+
+
+        <address>
+            <span class="footer">Version History</span> &#8226;<a href="#top">BACK TO TOP</a>
+        </address>
+      </div>
+
+    </div>
+  </body>
+</html>

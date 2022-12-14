@@ -1,0 +1,383 @@
+COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx.dll"        "TobEx.dll"                // main DLL
+COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobExVer.txt"     "TobEx_ini/TobExVer.txt"   // version marker
+COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx_ini.txt"    "TobEx_ini/TobEx_ini.txt"  // text description
+COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/AsmJit.dll"       "AsmJit.dll"               // JIT Assembler
+COPY "%TOBEX_MOD_DIRECTORY%/TobEx_redist/XCrashReport.exe" "XCrashReport.exe"         // crashdump util
+
+
+/////////////////////////////////
+// TobEx AfterLife line
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "//TobEx AfterLife" BEGIN
+
+<<<<<<<< tempfile
+//TobEx AfterLife
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Character Behind Polygon Fix
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Character Behind Polygon Fix=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Engine]~ ~[Engine]%WNL%Character Behind Polygon Fix=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Disarm Trap Distance Fix
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Disarm Trap Distance Fix=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Action]~ ~[Action]%WNL%Disarm Trap Distance Fix=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Continuous Battle Music Fix
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Continuous Battle Music Fix=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Music]~ ~[Music]%WNL%Continuous Battle Music Fix=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Set BG1 Animation during Character Generation [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "UI:Set BG1 Animation during Character Generation=" BEGIN
+
+<<<<<<<< tempfile
+UI:Set BG1 Animation during Character Generation=0
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Flickering Cursor Fix
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Flickering Cursor Fix=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Video]~ ~[Video]%WNL%Flickering Cursor Fix=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Cpu Idle
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Cpu Idle=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Engine]~ ~[Engine]%WNL%Cpu Idle=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Over Target Visual Effect Fixes [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Effect Opcodes:Over Target Visual Effect Fixes=" BEGIN
+
+<<<<<<<< tempfile
+Effect Opcodes:Over Target Visual Effect Fixes=1
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Skip OpenGL Fullscreen Display Modes with Fixed Interpolation
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Skip OpenGL Fullscreen Display Modes with Fixed Interpolation=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Video]~ ~[Video]%WNL%Skip OpenGL Fullscreen Display Modes with Fixed Interpolation=0~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// OpenGL VSync On
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "OpenGL VSync On=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Video]~ ~[Video]%WNL%OpenGL VSync On=0~
+ BUT_ONLY
+END
+
+
+////////////////////////////////////////////////
+// Protection From Spell for Contingency Fix
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Protection From Spell for Contingency Fix=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Effect Opcodes]~ ~[Effect Opcodes]%WNL%Protection From Spell for Contingency Fix=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Run Game In Background Window [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Engine:Run In Background=" BEGIN
+
+<<<<<<<< tempfile
+Engine:Run In Background=0
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Disable Hidden TobEx Patches
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Disable Hidden TobEx Patches=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Video]~ ~[Video]%WNL%Disable Hidden TobEx Patches=0~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// External Crashdump Saving Utility
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "External Crashdump Saving Utility=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Debug]~ ~[Debug]%WNL%External Crashdump Saving Utility=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Stop Animation of Interrupted Casting
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Stop Animation/Sound of Interrupted Casting=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Effect Opcodes]~ ~[Effect Opcodes]%WNL%Stop Animation/Sound of Interrupted Casting=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Mixed Soundset for BGT
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Mixed Soundset for BGT=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Sound]~ ~[Sound]%WNL%Mixed Soundset for BGT=1~
+ BUT_ONLY
+END
+COPY ~%TOBEX_MOD_DIRECTORY%/TobEx_redist/files/BGSNDSET.2DA~  ~override~
+
+
+/////////////////////////////////
+// Externalise Animation Sound Reference Override
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Externalise Animation Sound Reference Override=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Sound]~ ~[Sound]%WNL%Externalise Animation Sound Reference Override=1~
+ BUT_ONLY
+END
+COPY ~%TOBEX_MOD_DIRECTORY%/TobEx_redist/files/ANISNDEX.2DA~  ~override~
+//COPY ~%TOBEX_MOD_DIRECTORY%/TobEx_redist/files/ANISND~        ~override~
+
+
+/////////////////////////////////
+// Externalise Animation Config Override
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Externalise Animation Config Override=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Engine]~ ~[Engine]%WNL%Externalise Animation Config Override=1~
+ BUT_ONLY
+END
+COPY ~%TOBEX_MOD_DIRECTORY%/TobEx_redist/files/EXTANIM.2DA~   ~override~
+COPY ~%TOBEX_MOD_DIRECTORY%/TobEx_redist/files/EXTANI60.2DA~  ~override~
+COPY ~%TOBEX_MOD_DIRECTORY%/TobEx_redist/files/EXTANI64.2DA~  ~override~
+
+
+/////////////////////////////////
+// Sound:Mute Generic Animation Attack Sound [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Sound:Mute Generic Animation Attack Sound=" BEGIN
+
+<<<<<<<< tempfile
+Sound:Mute Generic Animation Attack Sound=0
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Sound:Disable Hardcoded BG1 Item Sounds [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Sound:Disable Hardcoded BG1 Item Sounds=" BEGIN
+
+<<<<<<<< tempfile
+Sound:Disable Hardcoded BG1 Item Sounds=0
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+////////////////////////////////////////////////
+// Self-Patched Effect Removing Fix
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Self-Patched Effect Removing Fix=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Effect Opcodes]~ ~[Effect Opcodes]%WNL%Self-Patched Effect Removing Fix=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Sequence Sound Override Fix
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Sequence Sound Override Fix=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Sound]~ ~[Sound]%WNL%Sequence Sound Override Fix=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Ankheg Range Weapon Animation Fix
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Ankheg Range Weapon Animation Fix=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Video]~ ~[Video]%WNL%Ankheg Range Weapon Animation Fix=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Creature Embedded Sound overrides 2DA Entry [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Sound:Creature Embedded Sound overrides 2DA Entry=" BEGIN
+
+<<<<<<<< tempfile
+Sound:Creature Embedded Sound overrides 2DA Entry=1
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Restore Creature Attack Sounds #1 [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Sound:Restore Creature Attack Sounds #1=" BEGIN
+
+<<<<<<<< tempfile
+Sound:Restore Creature Attack Sounds #1=1
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Restore Creature Attack Sounds #2 [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Sound:Restore Creature Attack Sounds #2=" BEGIN
+
+<<<<<<<< tempfile
+Sound:Restore Creature Attack Sounds #2=1
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Enable Off Hand Weapon BG1 Animation  [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "UI:Enable Off Hand Weapon BG1 Animation=" BEGIN
+
+<<<<<<<< tempfile
+UI:Enable Off Hand Weapon BG1 Animation=0
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Enable Robe Armor Sound
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Sound:Enable Robe Armor Sound=" BEGIN
+
+<<<<<<<< tempfile
+Sound:Enable Robe Armor Sound=1
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Reset Idle Timer After Weapon Equipped [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Animation:Reset Idle Timer After Weapon Equipped=" BEGIN
+
+<<<<<<<< tempfile
+Animation:Reset Idle Timer After Weapon Equipped=1
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Weapon Speed Fix
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Weapon Speed Fix=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Engine]~ ~[Engine]%WNL%Weapon Speed Fix=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Party Bumpable When Moving [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Engine:Path Search Party Bumpable When Moving=" BEGIN
+
+<<<<<<<< tempfile
+Engine:Path Search Party Bumpable When Moving=0
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Saving Throw Improved Invisible Bonus [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Effect Opcodes:Saving Throw Improved Invisible Bonus=" BEGIN
+
+<<<<<<<< tempfile
+Effect Opcodes:Saving Throw Improved Invisible Bonus=0
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
