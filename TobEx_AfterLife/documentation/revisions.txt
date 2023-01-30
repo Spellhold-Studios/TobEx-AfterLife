@@ -1,3 +1,9 @@
+v29.13
+Added: Small Purple Elemental Palette Fix
+Fixed: Ambient sound muted after QuickLoad
+Added: 44Khz Sound Mixer Frequency
+Fixed: Walking animation at READY state regression
+
 v29.12
 Added: 2TB+ Free Disk space Fix 
 Added: HTML Documentation 

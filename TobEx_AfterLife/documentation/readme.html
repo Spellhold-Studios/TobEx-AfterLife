@@ -329,7 +329,7 @@
             Author: Insomniator
         </p>
         <p class="about">
-            <a href="http://www.spellholdstudios.net/">Mod Website</a> &#8226; <a href="http://www.shsforums.net/topic/61072-tobex-afterlife/">Mod Forum</a> &#8226; <a href="http://www.shsforums.net/files/file/1274-tobex-afterlife/">Download</a> &#8226; <a href="https://github.com/SpellholdStudios/TobEx_AfterLife/">GitHub</a> &#8226;  Version 29.12
+            <a href="http://www.spellholdstudios.net/">Mod Website</a> &#8226; <a href="http://www.shsforums.net/topic/61072-tobex-afterlife/">Mod Forum</a> &#8226; <a href="http://www.shsforums.net/files/file/1274-tobex-afterlife/">Download</a> &#8226; <a href="https://github.com/SpellholdStudios/TobEx_AfterLife/">GitHub</a> &#8226;  Version 29.13
         </p>
         <hr style="margin: 10px 0 10px 0; padding: 0; height: 1px; border: 0; color: #aaa; background-color: #aaa;" />
 
@@ -390,6 +390,8 @@
         <li><a href="#WeaponSpeed"  >Weapon Speed [F]</a></li>        
         <li><a href="#ImprInvisBon" >Saving Throw Improved Invisible Bonus [C]</a></li>
         <li><a href="#HiddenPatches">Disable Hidden TobEx Patches [D]</a></li>
+        <li><a href="#Anim7313Fix"  >Small Purple Elemental Palette Fix [F]</a></li>
+        <li><a href="#Mixer44Khz"   >44Khz Sound Mixer Frequency [T]</a></li>        
         </ul>        
         
         <div>
@@ -432,6 +434,8 @@ Reset Idle Timer After Weapon Equipped=1<br>
 Weapon Speed Fix=1<br>
 Path Search Party Bumpable When Moving=0<br>
 Saving Throw Improved Invisible Bonus=0<br>
+Small Purple Elemental Palette Fix=1<br>
+44Khz Mixer=1<br>
         </div>
         </div>
         </div>
@@ -973,7 +977,7 @@ Disable Hidden TobEx Patches [Debug]
 <li>Extended combat text mistypos</li>
 <li>Clear "unstealable" bit when putting item to Bag to allow stacking</li>
 <li>Remove hardcoded check for mage animation X2XX for Infinity Animation BG1 type Mage animation</li>
-<li>Fix Armor sound for Infinity Animation BG1/BG2 type Mage animation</li>
+<li>Fixes Armor sound for Infinity Animation BG1/BG2 type Mage animation</li>
 <li>Remove WAL_77*.wav Ready Sound for Infinity Animation 0x10XX/0x50XX animation monsters</li>
 <li>Enable dual-classing for Infinity Animation BG1 type animation</li>
 <li>Green highlight stats(with +bonus) on inventory screen</li>
@@ -999,7 +1003,8 @@ Disable Hidden TobEx Patches [Debug]
     <li>Char already in idle state (has SEQ_HEAD_TURN sequence)
     </ul> 
 <li>2TB+ free space error window</li>
-    </ul>
+<li>Ambient sound muted after QuickLoad</li>
+</ul>
 <p>
 Disables game code injects:
 <ul>     
@@ -1030,7 +1035,30 @@ Saving Throw Improved Invisible Bonus [Compatibility]
         </p>            
 
         <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+        
+        
+<!-- ============================================================================== -->
+        <a name="Anim7313Fix" id="Anim7313Fix"></a>
+        <p><strong>
+Small Purple Elemental Palette Fix [Fix]
+        </strong></p>
+        <p>
+        Override palette .BMP references MFIEG1B->MFISG1B, MFIEG2B->MFISG2B for 0x7313 animation
+        </p>            
 
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>        
+
+
+<!-- ============================================================================== -->
+        <a name="Mixer44Khz" id="Mixer44Khz"></a>
+        <p><strong>
+44Khz Sound Mixer Frequency [Tweak]
+        </strong></p>
+        <p>
+        Change default 22kHz Mixer frequency to 44Khz. Affects only Primary DirectSound buffer, secondary buffers still use .WAV frequency, usually 22Khz. Also fixes little frequency shift, engine plays 22050Hz recorded sounds at 22000Hz.
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
 
 
 <!-- ======================= C r e d i t s ====================== -->
@@ -1097,7 +1125,13 @@ Saving Throw Improved Invisible Bonus [Compatibility]
       <div class="content">
 
         <h2>Version History</h2><br>
-
+        <h6>Version 29.13</h6>
+          <ul>
+            <li>Added: Small Purple Elemental Palette Fix</li>
+            <li>Fixed: Ambient sound muted after QuickLoad</li>
+            <li>Added: 44Khz Sound Mixer Frequency</li>            
+            <li>Fixed: Walking animation at READY state regression</li>
+          </ul>
         <h6>Version 29.12</h6>
           <ul>
             <li>Added: 2TB+ Free Disk space Fix</li>

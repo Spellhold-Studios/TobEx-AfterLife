@@ -381,3 +381,24 @@ Effect Opcodes:Saving Throw Improved Invisible Bonus=0
         APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
  BUT_ONLY
 END
+
+
+/////////////////////////////////
+// Small Purple Elemental Palette Fix
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Small Purple Elemental Palette Fix=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Video]~ ~[Video]%WNL%Small Purple Elemental Palette Fix=1~
+ BUT_ONLY
+END
+COPY ~%TOBEX_MOD_DIRECTORY%/TobEx_redist/files/MFISG1B.BMP~  ~override~
+COPY ~%TOBEX_MOD_DIRECTORY%/TobEx_redist/files/MFISG2B.BMP~  ~override~
+
+
+/////////////////////////////////
+// 44Khz Sound Mixer
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "44Khz Mixer=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Sound]~ ~[Sound]%WNL%44Khz Mixer=1~
+ BUT_ONLY
+END
+

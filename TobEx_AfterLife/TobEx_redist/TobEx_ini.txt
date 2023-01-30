@@ -2685,7 +2685,7 @@ Disables small patches when need to keep only few enabled options:
 - Extended combat text mistypos
 - Clear "unstealable" bit when putting item to Bag to allow stacking
 - Remove hardcoded check for mage animation X2XX for Infinity Animation BG1 type Mage animation
-- Fix Armor sound for Infinity Animation BG1/BG2 type Mage animation
+- Fixes Armor sound for Infinity Animation BG1/BG2 type Mage animation
 - Remove WAL_77*.wav Ready Sound for Infinity Animation 0x10XX/0x50XX animation monsters
 - Enable dual-classing for Infinity Animation BG1 type animation
 - Green highlight stats(with +bonus) on inventory screen
@@ -2734,9 +2734,17 @@ Enable +4 Saving Throw Bonus at engine level, doesn't apply bonus against creatu
 Component not compatible with BG2 Fixpack! (BG2 Fixpack has own, but worse fix)
 
 
+----- Small Purple Elemental Palette Fix [F]
+Override palette .BMP references MFIEG1B->MFISG1B, MFIEG2B->MFISG2B for 0x7313 animation
+back to overview
+
+
+----- 44Khz Sound Mixer Frequency [T]
+Change default 22kHz Mixer frequency to 44Khz. Affects only Primary DirectSound buffer, secondary buffers still use .WAV frequency, usually 22Khz. Also fixes little frequency shift, engine plays 22050Hz recorded sounds at 22000Hz. 
+
+
 
 --------------------------------------------------------------------------------
-
 Default AfterLife options state:
 Character Behind Polygon Fix=1
 Disarm Trap Distance Fix=1
@@ -2769,8 +2777,8 @@ Reset Idle Timer After Weapon Equipped=1
 Weapon Speed Fix=1
 Path Search Party Bumpable When Moving=0
 Saving Throw Improved Invisible Bonus=0
-
-
+Small Purple Elemental Palette Fix=1
+44Khz Mixer=1
 
 
 /////////////////////////////////////// EOF
