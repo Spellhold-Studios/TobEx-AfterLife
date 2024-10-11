@@ -28,7 +28,7 @@ Why some badges update slowly: https://github.com/pujux/badge-it/issues/78
 <br>
 
 [<img alt="Download" src="https://raw.githubusercontent.com/Spellhold-Studios/Spellhold-Studios.github.io/main/assets/buttons/download.svg" height="28">](https://github.com/Spellhold-Studios/TobEx-AfterLife/releases/latest)&nbsp;
-[<img alt="Readme" src="https://raw.githubusercontent.com/Spellhold-Studios/Spellhold-Studios.github.io/main/assets/buttons/readme.svg" height="28">](https://spellhold-studios.github.io/readmes/tobex-afterlife/readme.html)&nbsp;
+[<img alt="Readme" src="https://raw.githubusercontent.com/Spellhold-Studios/Spellhold-Studios.github.io/main/assets/buttons/readme.svg" height="28">](https://spellhold-studios.github.io/readmes/tobex-afterlife/documentation/readme.html)&nbsp;
 [<img alt="Webpage" src="https://raw.githubusercontent.com/Spellhold-Studios/Spellhold-Studios.github.io/main/assets/buttons/webpage.svg" height="28">](https://spellhold-studios.github.io/)&nbsp;
 [<img alt="Discord" src="https://raw.githubusercontent.com/Spellhold-Studios/Spellhold-Studios.github.io/main/assets/buttons/discord-blue.svg" height="28">](https://discord.gg/pE2Njbdb2a)
 
@@ -36,9 +36,9 @@ Why some badges update slowly: https://github.com/pujux/badge-it/issues/78
 
 AfterLife is a TobEx fork with more bugfixes/tweaks for the original Baldur's Gate II engine. It is part of BG2 Improved GUI project, but only TobEx options are enabled.
 
-Codebase was changed to a custom one; this is no longer "original" TobEx v26 by Ascension64. Use it at your own risk. Includes v28 patch by Magus. Shares the same C++ sources with the main BG2 Improved GUI, src files available in the `bg2improvedgui\src` folder. 
+Codebase was changed to a custom one; this is no longer the original TobEx v26 by Ascension64. Use it at your own risk! Includes v28 patch by Magus. Shares the same C++ sources with the main BG2 Improved GUI; src files available in the `bg2improvedgui\src` folder. 
 
-*Please check the complete [Readme](https://spellhold-studios.github.io/readmes/tobex-afterlife/readme.html) to learn more about this mod before installation.*
+*Please check the complete [Readme](https://spellhold-studios.github.io/readmes/tobex-afterlife/documentation/readme.html) to learn more about this mod before installation.*
 
 ## Components
 
