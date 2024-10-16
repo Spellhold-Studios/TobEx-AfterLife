@@ -93,7 +93,7 @@ Codebase was changed to a custom one; this is no longer the original TobEx v26 b
 
 - Magus
 
-**Acknowledgements**
+**Special Acknowledgements**
 
 - Spellhold Studios team for hosting the mod.
 - Ascension64 for TobEx and BG2 engine reverse enginering.
