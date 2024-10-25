@@ -2,7 +2,7 @@
 [![Published](https://img.shields.io/github/release-date/Spellhold-Studios/TobEx-AfterLife?display_date=published_at&label=published&color=%2392403a)](https://github.com/Spellhold-Studios/TobEx-AfterLife/releases/latest)
 [![Downloads](https://img.shields.io/github/downloads/Spellhold-Studios/TobEx-AfterLife/total?color=%2392403a)](https://github.com/Spellhold-Studios/TobEx-AfterLife/releases)
 [![Views](https://badges.pufler.dev/visits/Spellhold-Studios/TobEx-AfterLife?label=views&color=%2392403a)](https://github.com/Spellhold-Studios/TobEx-AfterLife/releases)
-[![Platform](https://img.shields.io/badge/platform-Windows%20%a0%20Project%20Infinity-%2392403a)](https://github.com/Spellhold-Studios/TobEx-AfterLife/releases)
+[![Platform](https://img.shields.io/badge/platform-Windows%20%a0%20Linux%20%a0%20Project%20Infinity-%2392403a)](https://github.com/Spellhold-Studios/TobEx-AfterLife/releases)
 [![Games](https://img.shields.io/badge/games-BG2%20%a0%20BGT-%2392403a)](https://github.com/Spellhold-Studios/TobEx-AfterLife/releases)
 [![Language](https://img.shields.io/badge/language-en-%2392403a)](https://github.com/Spellhold-Studios/TobEx-AfterLife/releases)
 
