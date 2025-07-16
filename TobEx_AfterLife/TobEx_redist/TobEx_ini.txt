@@ -2295,32 +2295,39 @@ BG1 - CRE file has BG1 soundset:   BG1_SELECT_ACTION1-3 (0x124-0x12C) + BG1_SELE
 BG2 - CRE file has BG2 soundset:   BG2_SELECT_ACTION1-7 (0x124-0x13C) + BG2_SELECT_RARE1-2 (0x1a0-0x1a4)
 Mix - CRE file has Mixed soundset: BG2_SELECT_ACTION1-7 (0x124-0x13C) + BG2_SELECT_RARE1-2 (0x1a0-0x1a4) + BG2EE_SELECT_RARE1-4 (0x1d0-0x1dc)(slots #75-78)
 Max - same as Mix + all unused slots in 0x1e0-0x230 range used as additional sounds
-1 MORALE2                    1e0 (slot #79)
-2 HAPPY2                     1e4 (slot #80)
-3 UNHAPPY_ANNOYED2           1e8 (slot #81)
-4 UNHAPPY_SERIOUS2           1ec (slot #82)
-5 UNHAPPY_BREAKING_POINT2    1f0 (slot #83)
-6 LEADER2                    1f4 (slot #84)
-7 TIRED2                     1f8 (slot #85)
-8 BORED2                     1fc (slot #86)
-18 DAMAGE2                   200 (slot #87)
-19 DYING2                    204 (slot #88)
-20 HURT2                     208 (slot #89)
-21 AREA_FOREST2              20c (slot #90)
-22 AREA_CITY2                210 (slot #91)
-23 AREA_DUNGEON2             214 (slot #92)
-24 AREA_DAY2                 218 (slot #93)
-25 AREA_NIGHT2               21c (slot #94)
+MORALE2                    1e0 (slot #79)
+HAPPY2                     1e4 (slot #80)
+UNHAPPY_ANNOYED2           1e8 (slot #81)
+UNHAPPY_SERIOUS2           1ec (slot #82)
+UNHAPPY_BREAKING_POINT2    1f0 (slot #83)
+LEADER2                    1f4 (slot #84)
+TIRED2                     1f8 (slot #85)
+BORED2                     1fc (slot #86)
+DAMAGE2                   200 (slot #87)
+DYING2                    204 (slot #88)
+HURT2                     208 (slot #89)
+AREA_FOREST2              20c (slot #90)
+AREA_CITY2                210 (slot #91)
+AREA_DUNGEON2             214 (slot #92)
+AREA_DAY2                 218 (slot #93)
+AREA_NIGHT2               21c (slot #94)
 
-27 SELECT_COMMON7            220 (slot #95)
-28 SELECT_COMMON8            224 (slot #96)
-29 SELECT_COMMON9            228 (slot #97)
-32 SELECT_ACTION8            22C (slot #98)
-33 SELECT_ACTION9            230 (slot #99)
+SELECT_COMMON7            220 (slot #95)
+SELECT_COMMON8            224 (slot #96)
+SELECT_COMMON9            228 (slot #97)
+SELECT_COMMON10           22C (slot #98)
+SELECT_COMMON11           230 (slot #99)
+
+SELECT_ACTION8            140 (slot #39)
+SELECT_ACTION9            144 (slot #40)
+SELECT_ACTION10           148 (slot #41)
+SELECT_ACTION11           14C (slot #42)
+SELECT_ACTION12           150 (slot #43)
+
 
 For example char with Max type will play MORALE sound from original offset 0xA8 and from additional 0x1E0 by random order. Max type plays rare sounds after 13 clicks.
 
-BG2EE_SELECT_RARE1-4 works as BG1_SELECT_RARE1-4, plays rare sounds after 9 clicks.
+BG2EE_SELECT_RARE1-4 works as BG1_SELECT_RARE1-4, plays rare sounds after 12 clicks.
 
 Due engine bug when it lost first char of creature filename in savegame files, this component requires starting new game.
 
@@ -2385,13 +2392,13 @@ If Sound_2DA need to have different filename, use ANISNDEX.2DA to set
 Main animation filename calculation:
 BG1T + 2 + a/c/g/w/...bam
 BG1T - resref
-2    - armor code, 1 - no armor, 2 - leather, ...
+2    - armor code, 1 - no armor, 2 - leather, ... (for humans only, other animations use random code)
 a/c/g/w/... - hardcoded animation suffixes
 
 Paperdoll body animation filename calculation:
 BG1P + 2 + INV.bam
 BG1P - resref_paperdoll
-2    - armor code, 1 - no armor, 2 - leather, ...
+2    - armor code, 1 - no armor, 2 - leather, ... (for humans only, other animations use random code)
 INV  - suffix
 
 
@@ -2657,16 +2664,6 @@ Options:
 -1: enabled
 
 
------ Path Search Party Bumpable When Moving [T]
-Alternates Path Search algorithm to ignore Party/Ally current position to eliminate famous bug when char can not directly move to destionation point if other party member currently is blocking passage.
-Original algorithm may change current direction to other side of map, then recalculate after timeout and back to "right" way
-
-
-Options:
--0: disabled
--1: enabled
-
-
 ----- Enable Off Hand Weapon BG1 Animation [T]
 Enables paperdoll off hand weapon animation for InfinityAnimation BG1 Chars, filename calculation:
 WP[S/M/L] + WeaponCode + "O" + "IN.BAM". Animation forced to use main hand weapon animation, there is no off hand weapon animation files in BG1
@@ -2676,12 +2673,64 @@ Options:
 -1: enabled
 
 
+----- Saving Throw Improved Invisible Bonus [F]
+Enable +4 Saving Throw Bonus at engine level, doesn't apply bonus against creatures with ability to see invisible. Disables bugged BG2Fixpack fix if detected. Requires Saving Throw Fix to be enabled
+
+
+----- Small Purple Elemental Palette Fix [F]
+Override palette .BMP references MFIEG1B->MFISG1B, MFIEG2B->MFISG2B for 0x7313 animation
+
+Options:
+-0: disabled
+-1: enabled
+
+
+----- 44Khz Sound Mixer Frequency [T]
+Change default 22kHz Mixer frequency to 44Khz. Affects only Primary DirectSound buffer, secondary buffers still use .WAV frequency, usually 22Khz. Also fixes little frequency shift, engine plays 22050Hz recorded sounds at 22000Hz. 
+
+Options:
+-0: disabled
+-1: enabled
+
+
+----- Auto-Pause Spell Cast Fix [F]
+Original engine applies new effects immediately if game on pause, this leads to process each effect in spell separately. Fix skips such behaviour and returns to normal effect processing.
+
+Options:
+-0: disabled
+-1: enabled
+
+
+----- Visual Range on Blindness Fix [F]
+Fix bug when visual range on blindness calculated from centre of creature and ignoring footsize, so large NPC like Dragon doesn't see the enemies even if they're standing next to Dragon.
+
+Options:
+-0: disabled
+-1: enabled
+
+
+----- Sequencer Order Fix [F]
+Fix bug when visual range on blindness calculated from centre of creature and ignoring footsize, so large NPC like Dragon doesn't see the enemies even if they're standing next to Dragon.
+
+Options:
+-0: disabled
+-1: enabled
+
+
+----- Do not erase wizard spell quickslots when equipping armor [T]
+
+Options:
+-0: disabled
+-1: enabled
+
+
+
+
+
+
 ----- Disable Hidden TobEx Patches [D]
 Disables small patches when need to keep only few enabled options:
-- Set Wild Mage school to Generalist
-- Remove +2/-2 bonus "Unschooled weapon/item Effects versus Chars with any Kit
-- Allow equip Robe for Mages with BG1 type animation
-
+- Force malloc() -> calloc() to fill object's memory to zero
 - Extended combat text mistypos
 - Clear "unstealable" bit when putting item to Bag to allow stacking
 - Remove hardcoded check for mage animation X2XX for Infinity Animation BG1 type Mage animation
@@ -2690,6 +2739,8 @@ Disables small patches when need to keep only few enabled options:
 - Enable dual-classing for Infinity Animation BG1 type animation
 - Green highlight stats(with +bonus) on inventory screen
 - Undefined creating/assign CString from not null-ended ResRef::GetResRef()
+- Remove +2/-2 bonus "Unschooled weapon/item Effects versus Chars with any Kit
+- Set Wild Mage school to Generalist
 - Remove crash when "min level" field setted in .ITM
 - Enable any resolution in window mode
 - Mouse Wheel on some ScrollBars
@@ -2709,6 +2760,12 @@ Disables small patches when need to keep only few enabled options:
     1) Char going to walk after idle
     2) Char already in idle state (has SEQ_HEAD_TURN sequence)
 - 2TB+ free space error window
+- Ambient sound muted after QuickLoad
+- Allow summon Wish Creature even if summon limit reached(apply on WISH01.cre & WISH02.cre only)
+- Simulacrum has 50% of Caster's level, must be 60%
+- Text message "has nothing to say to you" even if DIALOG_DEFAULT exist
+- Disable existance messages for joinable NPC at sound slots [69-73] when out of party
+
 
 Disables game code injects:
 - CEffect::CreateEffect()
@@ -2727,21 +2784,6 @@ Disables game code injects:
 Options:
 -0: disabled
 -1: enabled
-
-
------ Saving Throw Improved Invisible Bonus [C]
-Enable +4 Saving Throw Bonus at engine level, doesn't apply bonus against creatures with ability to see invisible.
-Component not compatible with BG2 Fixpack! (BG2 Fixpack has own, but worse fix)
-
-
------ Small Purple Elemental Palette Fix [F]
-Override palette .BMP references MFIEG1B->MFISG1B, MFIEG2B->MFISG2B for 0x7313 animation
-back to overview
-
-
------ 44Khz Sound Mixer Frequency [T]
-Change default 22kHz Mixer frequency to 44Khz. Affects only Primary DirectSound buffer, secondary buffers still use .WAV frequency, usually 22Khz. Also fixes little frequency shift, engine plays 22050Hz recorded sounds at 22000Hz. 
-
 
 
 --------------------------------------------------------------------------------
@@ -2775,10 +2817,12 @@ Enable Off Hand Weapon BG1 Animation=0
 Enable Robe Armor Sound=1
 Reset Idle Timer After Weapon Equipped=1
 Weapon Speed Fix=1
-Path Search Party Bumpable When Moving=0
-Saving Throw Improved Invisible Bonus=0
+Saving Throw Improved Invisible Bonus=1
 Small Purple Elemental Palette Fix=1
 44Khz Mixer=1
-
+Auto-Pause Spell Cast Fix=1
+Visual Range on Blindness Fix=1
+Keep Sequencer Spell Order=1
+Keep Wizard QuickSpells on Armor=1
 
 /////////////////////////////////////// EOF

@@ -1,0 +1,169 @@
+DEFINE_PATCH_FUNCTION find_and_patch BEGIN
+
+  SET abil_length = 0x28
+  SET bPrint = 0
+  SET fx_delta = 0
+  
+  READ_LONG  0x64 abil_off ELSE 0
+  READ_SHORT 0x68 abil_num ELSE 0
+  READ_LONG  0x6a fx_off   ELSE 0
+    
+  FOR (index = 0 ; index < abil_num ; ++index) BEGIN // iterating abilities
+      SET bFound_Invis = 0
+      SET bFound_Bonuses = 0
+      
+      READ_SHORT  (abil_off + 0x1e + (abil_length * index)) abil_fx_num
+      WRITE_SHORT (abil_off + 0x20 + (abil_length * index)) THIS + fx_delta
+      READ_SHORT  (abil_off + 0x20 + (abil_length * index)) abil_fx_idx
+      
+      FOR (index2 = 0 ; index2 < abil_fx_num ; ++index2) BEGIN // iterating effects
+        READ_SHORT (fx_off +        (0x30 * (abil_fx_idx + index2))) opcode
+        READ_LONG  (fx_off + 0x04 + (0x30 * (abil_fx_idx + index2))) param1
+        READ_LONG  (fx_off + 0x08 + (0x30 * (abil_fx_idx + index2))) param2
+        PATCH_IF ((opcode = 20) AND (param2 = 1)) BEGIN                     // Improved Invisibility
+            SET bFound_Invis = 1
+        END
+        
+        // Save vs. death is just a marker
+        PATCH_IF ((opcode = 33) AND (param1 = 4) AND (param2 = 0)) BEGIN    // Save vs. death bonus, +4 bonus
+            SET bFound_Bonuses = 1
+        END
+      END //for
+      
+      PATCH_IF ((bFound_Invis = 1) AND (bFound_Bonuses = 1)) BEGIN
+        SET bPrint = 1
+        FOR (index3 = 33 ; index3 < 38 ; ++index3) BEGIN
+          LPF DELETE_EFFECT INT_VAR silent = 1 check_globals = 0 match_opcode = index3 END // delete all saves
+        END
+      END
+  END //for
+    
+  PATCH_IF (bPrint = 1) BEGIN
+        PATCH_PRINT ~%SOURCE_FILE% removed saving bonuses~
+  END
+  
+END
+
+
+DEFINE_PATCH_FUNCTION ~SET_EXTANIM2DA_ENTRY~ 
+  STR_VAR anim_id   = "0x0000"
+          col       = "same"
+          val       = "*"
+BEGIN
+    
+    SET  X = 0
+    SET  Y = 0
+    SET  BREAK_LOOP = 0
+    
+    PATCH_IF (~%col%~ STR_EQ ~move_scale~ ) BEGIN
+        X = 1
+    END
+
+    PATCH_IF (~%col%~ STR_EQ ~personal_space~ ) BEGIN
+        X = 2
+    END
+
+    PATCH_IF (~%col%~ STR_EQ ~color_blood~ ) BEGIN
+        X = 3
+    END
+
+    PATCH_IF (~%col%~ STR_EQ ~color_chunks~ ) BEGIN
+        X = 4
+    END
+
+    PATCH_IF (~%col%~ STR_EQ ~sound_freq~ ) BEGIN
+        X = 5
+    END
+
+    PATCH_IF (~%col%~ STR_EQ ~sound_death~ ) BEGIN
+        X = 6
+    END
+
+    PATCH_IF (~%col%~ STR_EQ ~brightest~ ) BEGIN
+        X = 7
+    END
+
+    PATCH_IF (~%col%~ STR_EQ ~light_source~ ) BEGIN
+        X = 8
+    END
+
+    PATCH_IF (~%col%~ STR_EQ ~detected_by_infravision~ ) BEGIN
+        X = 9
+    END
+
+    PATCH_IF (~%col%~ STR_EQ ~resref~ ) BEGIN
+        X = 10
+    END
+
+    PATCH_IF (~%col%~ STR_EQ ~resref_paperdoll~ ) BEGIN
+        X = 11
+    END
+
+    PATCH_IF (~%col%~ STR_EQ ~move_scale_bg1~ ) BEGIN
+        X = 12
+    END
+
+    COUNT_2DA_ROWS 2 rows
+    FOR (index = 2 ; index < rows AND BREAK_LOOP = 0 ; ++index) BEGIN
+        READ_2DA_ENTRY index 0 2 AnimID
+        //PATCH_PRINT ~AnimID=%AnimID% anim_id=%anim_id%~
+        PATCH_IF (~%AnimID%~ STR_EQ ~%anim_id%~) BEGIN
+            Y = %index% + 1
+            BREAK_LOOP = 1
+        END
+    END
+
+    PATCH_IF (X != 0 AND Y != 0) BEGIN
+        SET_2DA_ENTRY %Y% %X% 1 ~%val%~
+    END ELSE BEGIN
+        PATCH_IF (X != 0) BEGIN // new record
+            INSERT_2DA_ROW rows 2 ~%anim_id%  *           *               *           *               *           *           *           *               *                       *       *                   *~
+            SET_2DA_ENTRY %rows%+1 %X% 1 ~%val%~
+        END
+    END
+    //PATCH_PRINT ~anim_id=%anim_id% col=%col% val=%val% X=%X% Y=%Y%~
+END
+
+
+DEFINE_PATCH_FUNCTION ~SET_ANIWKSND2DA_ENTRY~ 
+  STR_VAR anim_id   = "0x0000"
+          col       = "same"
+          val       = "*"
+BEGIN
+    
+    SET  X = 0
+    SET  Y = 0
+    SET  BREAK_LOOP = 0
+    
+    PATCH_IF (~%col%~ STR_EQ ~ANIMATION~ ) BEGIN
+        X = 1
+    END
+
+    PATCH_IF (~%col%~ STR_EQ ~WALK_SOUND~ ) BEGIN
+        X = 2
+    END
+
+    PATCH_IF (~%col%~ STR_EQ ~WALK_NUM~ ) BEGIN
+        X = 3
+    END
+
+    COUNT_2DA_ROWS 2 rows
+    FOR (index = 2 ; index < rows AND BREAK_LOOP = 0 ; ++index) BEGIN
+        READ_2DA_ENTRY index 0 2 AnimID
+        //PATCH_PRINT ~AnimID=%AnimID% anim_id=%anim_id%~
+        PATCH_IF (~%AnimID%~ STR_EQ ~%anim_id%~) BEGIN
+            Y = %index% + 1
+            BREAK_LOOP = 1
+        END
+    END
+
+    PATCH_IF (X != 0 AND Y != 0) BEGIN
+        SET_2DA_ENTRY %Y% %X% 1 ~%val%~
+    END ELSE BEGIN
+        PATCH_IF (X != 0) BEGIN // new record
+            INSERT_2DA_ROW rows 2 ~%anim_id%	*	*	*~
+            SET_2DA_ENTRY %rows%+1 %X% 1 ~%val%~
+        END
+    END
+    //PATCH_PRINT ~anim_id=%anim_id% col=%col% val=%val% X=%X% Y=%Y%~
+END

@@ -329,7 +329,7 @@
             Author: Insomniator
         </p>
         <p class="about">
-            <a href="http://www.spellholdstudios.net/">Mod Website</a> &#8226; <a href="http://www.shsforums.net/topic/61072-tobex-afterlife/">Mod Forum</a> &#8226; <a href="http://www.shsforums.net/files/file/1274-tobex-afterlife/">Download</a> &#8226; <a href="https://github.com/SpellholdStudios/TobEx_AfterLife/">GitHub</a> &#8226;  Version 29.13
+            <a href="http://www.spellholdstudios.net/">Mod Website</a> &#8226; <a href="http://www.shsforums.net/topic/61072-tobex-afterlife/">Mod Forum</a> &#8226; <a href="http://www.shsforums.net/files/file/1274-tobex-afterlife/">Download</a> &#8226; <a href="https://github.com/SpellholdStudios/TobEx_AfterLife/">GitHub</a> &#8226;  Version 29.14
         </p>
         <hr style="margin: 10px 0 10px 0; padding: 0; height: 1px; border: 0; color: #aaa; background-color: #aaa;" />
 
@@ -383,15 +383,17 @@
         <li><a href="#CreEmbSnd"    >Creature Embedded Sound overrides 2DA Entry [T]</a></li>
         <li><a href="#AttackSound1" >Restore Creature Attack Sounds #1 [T]</a></li>
         <li><a href="#AttackSound2" >Restore Creature Attack Sounds #2 [T]</a></li>
-        <li><a href="#SearchPath"   >Path Search Party Bumpable When Moving [T]</a></li>
         <li><a href="#OffHandBG1Ani">Enable Off Hand Weapon BG1 Animation [T]</a></li>
         <li><a href="#RobeSound"    >Enable Robe Armor Sound [T]</a></li>            
         <li><a href="#IdleTimerAnim">Reset Idle Timer After Weapon Equipped [T]</a></li>        
         <li><a href="#WeaponSpeed"  >Weapon Speed [F]</a></li>        
-        <li><a href="#ImprInvisBon" >Saving Throw Improved Invisible Bonus [C]</a></li>
+        <li><a href="#ImprInvisBon" >Saving Throw Improved Invisible Bonus [F]</a></li>
         <li><a href="#HiddenPatches">Disable Hidden TobEx Patches [D]</a></li>
         <li><a href="#Anim7313Fix"  >Small Purple Elemental Palette Fix [F]</a></li>
-        <li><a href="#Mixer44Khz"   >44Khz Sound Mixer Frequency [T]</a></li>        
+        <li><a href="#Mixer44Khz"   >44Khz Sound Mixer Frequency [T]</a></li>
+        <li><a href="#AutoPauseCast">"SPELL CAST" auto-pause Fix [F]</a></li>
+        <li><a href="#BlindRange"   >Visual Range on Blindness Fix [F]</a></li>
+        <li><a href="#SequenceOrder">Sequencer Order Fix [T]</a></li>
         </ul>        
         
         <div>
@@ -432,10 +434,13 @@ Enable Off Hand Weapon BG1 Animation=0<br>
 Enable Robe Armor Sound=1<br>
 Reset Idle Timer After Weapon Equipped=1<br>
 Weapon Speed Fix=1<br>
-Path Search Party Bumpable When Moving=0<br>
-Saving Throw Improved Invisible Bonus=0<br>
+Saving Throw Improved Invisible Bonus=1<br>
 Small Purple Elemental Palette Fix=1<br>
 44Khz Mixer=1<br>
+Auto-Pause Spell Cast Fix=1<br>
+Visual Range on Blindness Fix=1<br>
+Keep Sequencer Spell Order=1<br>
+Keep Wizard QuickSpells=1<br>
         </div>
         </div>
         </div>
@@ -480,7 +485,6 @@ Small Purple Elemental Palette Fix=1<br>
 
         <p>Not compatible:</p>
         <ul>
-        <li>Component <strong>Saving Throw Improved Invisible Bonus</strong> not compatible with BG2 Fixpack</li>
         </ul>
 
         <address>
@@ -687,33 +691,39 @@ IMOEN15     Max
         </ul>
         <div class="important" >
         <pre>
-1 MORALE2                    1e0 (slot #79)
-2 HAPPY2                     1e4 (slot #80)
-3 UNHAPPY_ANNOYED2           1e8 (slot #81)
-4 UNHAPPY_SERIOUS2           1ec (slot #82)
-5 UNHAPPY_BREAKING_POINT2    1f0 (slot #83)
-6 LEADER2                    1f4 (slot #84)
-7 TIRED2                     1f8 (slot #85)
-8 BORED2                     1fc (slot #86)
-18 DAMAGE2                   200 (slot #87)
-19 DYING2                    204 (slot #88)
-20 HURT2                     208 (slot #89)
-21 AREA_FOREST2              20c (slot #90)
-22 AREA_CITY2                210 (slot #91)
-23 AREA_DUNGEON2             214 (slot #92)
-24 AREA_DAY2                 218 (slot #93)
-25 AREA_NIGHT2               21c (slot #94)
+MORALE2                    1e0 (slot #79)
+HAPPY2                     1e4 (slot #80)
+UNHAPPY_ANNOYED2           1e8 (slot #81)
+UNHAPPY_SERIOUS2           1ec (slot #82)
+UNHAPPY_BREAKING_POINT2    1f0 (slot #83)
+LEADER2                    1f4 (slot #84)
+TIRED2                     1f8 (slot #85)
+BORED2                     1fc (slot #86)
+DAMAGE2                   200 (slot #87)
+DYING2                    204 (slot #88)
+HURT2                     208 (slot #89)
+AREA_FOREST2              20c (slot #90)
+AREA_CITY2                210 (slot #91)
+AREA_DUNGEON2             214 (slot #92)
+AREA_DAY2                 218 (slot #93)
+AREA_NIGHT2               21c (slot #94)
 
-27 SELECT_COMMON7            220 (slot #95)
-28 SELECT_COMMON8            224 (slot #96)
-29 SELECT_COMMON9            228 (slot #97)
-32 SELECT_ACTION8            22C (slot #98)
-33 SELECT_ACTION9            230 (slot #99)</pre>
+SELECT_COMMON7            220 (slot #95)
+SELECT_COMMON8            224 (slot #96)
+SELECT_COMMON9            228 (slot #97)
+SELECT_COMMON10           22C (slot #98)
+SELECT_COMMON11           230 (slot #99)
+
+SELECT_ACTION8            140 (slot #39)
+SELECT_ACTION9            144 (slot #40)
+SELECT_ACTION10           148 (slot #41)
+SELECT_ACTION11           14C (slot #42)
+SELECT_ACTION12           150 (slot #43)</pre>
         </div>
         <p>
         For example char with <strong>Max</strong> type will play MORALE sound from original offset 0xA8 and from additional 0x1E0 by random order. <strong>Max</strong> type plays rare sounds after 13 clicks.<br>
 <br>
-BG2EE_SELECT_RARE1-4 works as BG1_SELECT_RARE1-4, plays rare sounds after 9 clicks.<br>
+BG2EE_SELECT_RARE1-4 works as BG1_SELECT_RARE1-4, plays rare sounds after 12 clicks.<br>
 <br>
 Due engine bug when it lost first char of creature filename in savegame files, this component requires starting new game.
         </p>            
@@ -936,22 +946,9 @@ Weapon Speed [Fix]
 
 
 <!-- ============================================================================== -->
-        <a name="SearchPath" id="SearchPath"></a>
-        <p><strong>
-Path Search Party Bumpable When Moving [Tweak]
-        </strong></p>
-        <p>
-        Alternates Path Search algorithm to ignore Party/Ally current position to eliminate famous bug when char can not directly move to destionation point if other party member currently is blocking passage.
-Original algorithm may change current direction to other side of map, then recalculate after timeout and back to "right" way
-        </p>            
-
-        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
-
-
-<!-- ============================================================================== -->
         <a name="OffHandBG1Ani" id="OffHandBG1Ani"></a>
         <p><strong>
-Enable Off Hand Weapon BG1 Animation [Fix]
+Enable Off Hand Weapon BG1 Animation [Tweak]
         </strong></p>
         <p>
         Enables paperdoll off hand weapon animation for InfinityAnimation BG1 Chars, filename calculation:<br>
@@ -970,10 +967,7 @@ Disable Hidden TobEx Patches [Debug]
         Disables small patches when need to keep only few enabled options:
         </p>
         <ul>
-<li>Set Wild Mage school to Generalist</li>
-<li>Remove +2/-2 bonus "Unschooled weapon/item Effects versus Chars with any Kit</li>
-<li>Allow equip Robe for Mages with BG1 type animation</li>
-
+<li>Force malloc() -> calloc() to fill object's memory to zero</li>        
 <li>Extended combat text mistypos</li>
 <li>Clear "unstealable" bit when putting item to Bag to allow stacking</li>
 <li>Remove hardcoded check for mage animation X2XX for Infinity Animation BG1 type Mage animation</li>
@@ -982,6 +976,8 @@ Disable Hidden TobEx Patches [Debug]
 <li>Enable dual-classing for Infinity Animation BG1 type animation</li>
 <li>Green highlight stats(with +bonus) on inventory screen</li>
 <li>Undefined creating/assign CString from not null-ended ResRef::GetResRef()</li>
+<li>Remove +2/-2 bonus "Unschooled weapon/item Effects versus Chars with any Kit</li>
+<li>Set Wild Mage school to Generalist</li>
 <li>Remove crash when "min level" field setted in .ITM</li>
 <li>Enable any resolution in window mode</li>
 <li>Mouse Wheel on some ScrollBars</li>
@@ -1004,6 +1000,11 @@ Disable Hidden TobEx Patches [Debug]
     </ul> 
 <li>2TB+ free space error window</li>
 <li>Ambient sound muted after QuickLoad</li>
+<li>Allow summon Wish Creature even if summon limit reached</li>
+<li>Simulacrum has 50% of Caster's level, must be 60%</li>
+<li>Text message "has nothing to say to you" even if DIALOG_DEFAULT exist</li>
+<li>Disable existance messages for joinable NPC at sound slots [69-73] when out of party</li>
+
 </ul>
 <p>
 Disables game code injects:
@@ -1028,10 +1029,10 @@ Disables game code injects:
 <!-- ============================================================================== -->
         <a name="ImprInvisBon" id="ImprInvisBon"></a>
         <p><strong>
-Saving Throw Improved Invisible Bonus [Compatibility]
+Saving Throw Improved Invisible Bonus [Fix]
         </strong></p>
         <p>
-        Enable +4 Saving Throw Bonus at engine level, doesn't apply bonus against creatures with ability to see invisible. Component not compatible with BG2 Fixpack! (BG2 Fixpack has own, but worse fix)
+        Enable +4 Saving Throw Bonus at engine level, doesn't apply bonus against creatures with ability to see invisible. Disables bugged BG2Fixpack fix if detected. Requires Saving Throw Fix to be enabled
         </p>            
 
         <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
@@ -1059,6 +1060,44 @@ Small Purple Elemental Palette Fix [Fix]
         </p>            
 
         <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>
+        
+        
+<!-- ============================================================================== -->
+        <a name="AutoPauseCast" id="AutoPauseCast"></a>
+        <p><strong>
+Auto-Pause Spell Cast Fix [Fix]
+        </strong></p>
+        <p>
+        Original engine applies new effects immediately if game on pause, this leads to process each effect in spell separately. Fix skips such behaviour and returns to normal effect processing.
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>        
+
+
+<!-- ============================================================================== -->
+        <a name="BlindRange" id="BlindRange"></a>
+        <p><strong>
+Visual Range on Blindness Fix [F]
+        </strong></p>
+        <p>
+        Fix bug when visual range on blindness calculated from centre of creature and ignoring footsize, so large NPC like Dragon doesn't see the enemies even if they're standing next to Dragon.
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>        
+
+
+<!-- ============================================================================== -->
+        <a name="SequenceOrder" id="SequenceOrder"></a>
+        <p><strong>
+Sequencer Order Fix [T]
+        </strong></p>
+        <p>
+        Apply spells in Sequencer in exact order as they saved. Overwrite time and speed of spells so that next spell will be applied only after previous spell is done.
+        </p>            
+
+        <div style="width: 95%;" align = "right"><a href="#intro">back to overview</a></div>        
+
+
 
 
 <!-- ======================= C r e d i t s ====================== -->
@@ -1125,6 +1164,20 @@ Small Purple Elemental Palette Fix [Fix]
       <div class="content">
 
         <h2>Version History</h2><br>
+        <h6>Version v29.14</h6>
+        <ul>
+            <li>Added: Allow summon Wish Creature even if summon limit reached</li>
+            <li>Added: Simulacrum has 50% of Caster's level, must be 60%</li>
+            <li>Added: Auto-Pause Spell Cast Fix</li>
+            <li>Added: Visual Range on Blindness Fix</li>
+            <li>Added: Sequencer Order Fix</li>
+            <li>Moved: "Party Bumpable When Moving" to BG2 Improved GUI</li>
+            <li>Fixed: Improved Invisibility saving throws +4 bonuses (with bg2fixpack workaround)</li>
+            <li>Added: Text message "has nothing to say to you" even if DIALOG_DEFAULT exist</li>
+            <li>Added: Disable existance messages for joinable NPC at sound slots [69-73] when out of party</li>
+            <li>Fixed: Learn spell -15% penalty for kitted bard/dual-mage</li>
+            <li>Added: Do not erase wizard spell quickslots when equipping armor</li>
+        </ul>        
         <h6>Version 29.13</h6>
           <ul>
             <li>Added: Small Purple Elemental Palette Fix</li>

@@ -354,32 +354,10 @@ END
 
 
 /////////////////////////////////
-// Party Bumpable When Moving [Tweak]
-ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Engine:Path Search Party Bumpable When Moving=" BEGIN
-
-<<<<<<<< tempfile
-Engine:Path Search Party Bumpable When Moving=0
->>>>>>>>
-
- COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
-        APPEND_FILE "tempfile"
-        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
- BUT_ONLY
-END
-
-
-/////////////////////////////////
-// Saving Throw Improved Invisible Bonus [Tweak]
-ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Effect Opcodes:Saving Throw Improved Invisible Bonus=" BEGIN
-
-<<<<<<<< tempfile
-Effect Opcodes:Saving Throw Improved Invisible Bonus=0
->>>>>>>>
-
- COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
-        APPEND_FILE "tempfile"
-        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
- BUT_ONLY
+// Saving Throw Improved Invisible Bonus
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Saving Throw Improved Invisible Bonus=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Effect Opcodes]~ ~[Effect Opcodes]%WNL%Saving Throw Improved Invisible Bonus=1~
 END
 
 
@@ -402,3 +380,50 @@ ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "44Khz Mixer=" BEGIN
  BUT_ONLY
 END
 
+
+/////////////////////////////////
+// Auto-Pause Spell Cast Fix
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Auto-Pause Spell Cast Fix=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Engine]~ ~[Engine]%WNL%Auto-Pause Spell Cast Fix=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Visual Range on Blindness Fix
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExCore.ini" "Visual Range on Blindness Fix=" BEGIN
+ COPY "TobEx_ini/TobExCore.ini" "TobEx_ini/TobExCore.ini"
+      REPLACE_TEXTUALLY EXACT_MATCH ~[Engine]~ ~[Engine]%WNL%Visual Range on Blindness Fix=1~
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Keep Sequencer Spell Order [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "Engine:Keep Sequencer Spell Order=" BEGIN
+
+<<<<<<<< tempfile
+Engine:Keep Sequencer Spell Order=1
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
+
+
+/////////////////////////////////
+// Keep Wizard QuickSpells on Armor [Tweak]
+ACTION_IF !FILE_CONTAINS "TobEx_ini/TobExTweak.ini" "UI:Keep Wizard QuickSpells on Armor=" BEGIN
+
+<<<<<<<< tempfile
+UI:Keep Wizard QuickSpells on Armor=1
+>>>>>>>>
+
+ COPY "TobEx_ini/TobExTweak.ini" "TobEx_ini/TobExTweak.ini"
+        APPEND_FILE "tempfile"
+        APPEND_FILE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/Windows_CR.txt"
+ BUT_ONLY
+END
